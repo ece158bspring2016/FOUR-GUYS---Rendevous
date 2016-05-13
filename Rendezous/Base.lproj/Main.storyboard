@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Rendezvous" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -114,7 +114,7 @@
         <!--Location Search Table-->
         <scene sceneID="hnm-dF-aA6">
             <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="ELe-gj-zIH" customClass="LocationSearchTable" customModule="MapKitTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="ELe-gj-zIH" customClass="LocationSearchTable" customModule="Rendezvous" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aja-Fz-xfE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
