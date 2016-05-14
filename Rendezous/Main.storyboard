@@ -223,7 +223,6 @@
                                 </state>
                                 <connections>
                                     <action selector="handleSignIn:" destination="htH-GJ-ffe" eventType="touchUpInside" id="9DN-PZ-jTv"/>
-                                    <segue destination="N8S-1w-Z3F" kind="presentation" identifier="signInSegue" id="uuN-cA-arO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rendezvous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9w-me-tt3">
@@ -245,7 +244,6 @@
                                 </state>
                                 <connections>
                                     <action selector="handleCreateAccount:" destination="htH-GJ-ffe" eventType="touchUpInside" id="MGC-Ex-b1f"/>
-                                    <segue destination="N8S-1w-Z3F" kind="presentation" identifier="createAccountSegue" id="NHf-Tl-cjV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -273,6 +271,7 @@
                         <outlet property="emailField" destination="gny-QD-MBo" id="BWa-zk-ymq"/>
                         <outlet property="passwordField" destination="MaY-3s-pBb" id="IKe-Or-dYB"/>
                         <outlet property="usernameField" destination="rAL-uE-dMo" id="BSY-eA-EzB"/>
+                        <segue destination="N8S-1w-Z3F" kind="presentation" identifier="segueToMap" id="bcE-Fz-1k9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cT-Pm-D3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,7 +279,4 @@
             <point key="canvasLocation" x="248" y="279"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="uuN-cA-arO"/>
-    </inferredMetricsTieBreakers>
 </document>

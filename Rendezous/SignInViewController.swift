@@ -13,16 +13,14 @@ class SignInViewController: UIViewController {
     
     let ref = Firebase(url: "https://rend-ezvous.firebaseio.com")
     
-    //var alreadyLoggedIn: false
-    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
 
     @IBAction func handleSignIn(sender: AnyObject) {
         ref.authUser(emailField.text!, password: passwordField.text!, withCompletionBlock: { error, authData in
-        
-        if (self.emailField.text == "" || self.usernameField.text == "") && self.passwordField.text == ""
+            
+        if self.emailField.text == "" && self.passwordField.text == ""
         {
             self.pleaseSignIn()
         }
@@ -31,6 +29,7 @@ class SignInViewController: UIViewController {
         {
             print("Unable to sign in user")
             self.cannotSignIn()
+            
         }
         else {
             let uid = authData.uid
@@ -38,14 +37,16 @@ class SignInViewController: UIViewController {
             
             let user = ["username" : self.usernameField.text!]
             self.ref.childByAppendingPath("USERS/\(uid)").setValue(user)
+            self.performSegueWithIdentifier("segueToMap", sender: nil)
         }
-        
+            
         })
     }
     
     @IBAction func handleCreateAccount(sender: AnyObject) {
         ref.createUser(emailField.text!, password: passwordField.text!, withValueCompletionBlock: { error, result in
-            if (self.emailField.text == "" || self.usernameField.text == "") && self.passwordField.text == ""
+            
+            if self.emailField.text == "" && self.usernameField.text == "" && self.passwordField.text == ""
             {
                 self.pleaseCreateAccount()
             }
@@ -59,6 +60,7 @@ class SignInViewController: UIViewController {
             {
                 let uid = result["uid"] as? String
                 print("Successfully created user with uid: \(uid)")
+                self.performSegueWithIdentifier("segueToMap", sender: nil)
             }
         })
     }
@@ -67,7 +69,7 @@ class SignInViewController: UIViewController {
 
     
     func cannotSignIn () {
-        let alert = UIAlertController (title: "Unable to Sign In", message: "Username/email and/or password incorrect", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController (title: "Unable to Sign In", message: "Email and/or password incorrect", preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
             style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
@@ -82,7 +84,7 @@ class SignInViewController: UIViewController {
     
     func cannotCreateAccount () {
         let alert = UIAlertController (title :"Unable to Create Account",
-                    message: "Username or email already exists",
+                    message: "Email already exists",
                     preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
@@ -97,7 +99,7 @@ class SignInViewController: UIViewController {
     
     func pleaseSignIn () {
         let alert = UIAlertController (title :"Unable to Sign In",
-                                       message: "Enter your email/username and password",
+                                       message: "Enter your email and password",
                                        preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
@@ -112,7 +114,7 @@ class SignInViewController: UIViewController {
     
     func pleaseCreateAccount () {
         let alert = UIAlertController (title :"Unable to Create Account",
-                                       message: "Enter your email/username and password",
+                                       message: "Enter your email, username and password",
                                        preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
