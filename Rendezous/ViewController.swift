@@ -178,6 +178,7 @@ extension ViewController : MKMapViewDelegate {
                 expected_time_string = expected_time_string.stringByAppendingString("\(min)min ")
             }
             self.eta_label.text = expected_time_string
+            member_data[0].eta = expected_time_string
 
             //self.departure_time_label.text = "Departure Time: \(response!.expectedDepartureDate)"
             self.arrival_time_label.text = "Arrival Time: \(response!.expectedArrivalDate)"

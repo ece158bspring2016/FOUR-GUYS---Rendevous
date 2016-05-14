@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D01CE7DAF6002784CC /* AddMemberViewController.swift */; };
+		676017D51CE7DAF7002784CC /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D11CE7DAF6002784CC /* Member.swift */; };
+		676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D21CE7DAF6002784CC /* MemberCell.swift */; };
+		676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D31CE7DAF6002784CC /* MembersViewController.swift */; };
 		8528CDC51CE6867F003794D5 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC41CE6867F003794D5 /* Firebase.framework */; };
 		8528CDC71CE686BA003794D5 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC61CE686BA003794D5 /* libicucore.tbd */; };
 		8528CDC91CE686C6003794D5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC81CE686C6003794D5 /* libc++.tbd */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		676017D01CE7DAF6002784CC /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
+		676017D11CE7DAF6002784CC /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		676017D21CE7DAF6002784CC /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		676017D31CE7DAF6002784CC /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		8528CDC41CE6867F003794D5 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		8528CDC61CE686BA003794D5 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		8528CDC81CE686C6003794D5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -81,6 +89,10 @@
 		FC1E247A1C2B10F5009E9908 /* Rendezvous */ = {
 			isa = PBXGroup;
 			children = (
+				676017D01CE7DAF6002784CC /* AddMemberViewController.swift */,
+				676017D11CE7DAF6002784CC /* Member.swift */,
+				676017D21CE7DAF6002784CC /* MemberCell.swift */,
+				676017D31CE7DAF6002784CC /* MembersViewController.swift */,
 				FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */,
 				FC1E247D1C2B10F5009E9908 /* ViewController.swift */,
 				8528CDD01CE691D3003794D5 /* SignInViewController.swift */,
@@ -167,8 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,
 				8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */,
+				676017D51CE7DAF7002784CC /* Member.swift in Sources */,
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
+				676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */,
+				676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 			);
