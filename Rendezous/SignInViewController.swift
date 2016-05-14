@@ -13,6 +13,8 @@ class SignInViewController: UIViewController {
     
     let ref = Firebase(url: "https://rend-ezvous.firebaseio.com")
     
+    //var alreadyLoggedIn: false
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -22,7 +24,7 @@ class SignInViewController: UIViewController {
         
         if (self.emailField.text == "" || self.usernameField.text == "") && self.passwordField.text == ""
         {
-            self.pleaseEnter()
+            self.pleaseSignIn()
         }
             
         if error != nil
@@ -45,7 +47,7 @@ class SignInViewController: UIViewController {
         ref.createUser(emailField.text!, password: passwordField.text!, withValueCompletionBlock: { error, result in
             if (self.emailField.text == "" || self.usernameField.text == "") && self.passwordField.text == ""
             {
-                self.pleaseEnter()
+                self.pleaseCreateAccount()
             }
             
             if error != nil
@@ -65,7 +67,7 @@ class SignInViewController: UIViewController {
 
     
     func cannotSignIn () {
-        let alert = UIAlertController (title: "Unable to Sign In", message: "Username/email and/or password incorrect", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let alert = UIAlertController (title: "Unable to Sign In", message: "Username/email and/or password incorrect", preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
             style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
@@ -81,7 +83,7 @@ class SignInViewController: UIViewController {
     func cannotCreateAccount () {
         let alert = UIAlertController (title :"Unable to Create Account",
                     message: "Username or email already exists",
-                    preferredStyle: UIAlertControllerStyle.ActionSheet)
+                    preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
                                style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
@@ -93,10 +95,10 @@ class SignInViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func pleaseEnter () {
-        let alert = UIAlertController (title :"Unable to Sign In or Create Account",
-                                       message: "Please enter your email/username and password",
-                                       preferredStyle: UIAlertControllerStyle.ActionSheet)
+    func pleaseSignIn () {
+        let alert = UIAlertController (title :"Unable to Sign In",
+                                       message: "Enter your email/username and password",
+                                       preferredStyle: UIAlertControllerStyle.Alert)
         
         let ok = UIAlertAction(title: "Ok",
                                style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
@@ -108,6 +110,20 @@ class SignInViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func pleaseCreateAccount () {
+        let alert = UIAlertController (title :"Unable to Create Account",
+                                       message: "Enter your email/username and password",
+                                       preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let ok = UIAlertAction(title: "Ok",
+                               style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
+                                print("OK")
+        }
+        
+        alert.addAction(ok)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     
     
