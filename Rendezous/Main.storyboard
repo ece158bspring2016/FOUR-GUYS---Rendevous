@@ -197,6 +197,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="htH-GJ-ffe" id="NBK-TW-0AX"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MaY-3s-pBb">
                                 <rect key="frame" x="20" y="301" width="560" height="30"/>
@@ -205,6 +208,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="htH-GJ-ffe" id="1tO-N9-dAy"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rAL-uE-dMo">
                                 <rect key="frame" x="20" y="245" width="560" height="30"/>
@@ -213,6 +219,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="htH-GJ-ffe" id="sqo-i1-UGI"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-MK-LSt">
                                 <rect key="frame" x="20" y="344" width="73" height="32"/>
@@ -410,7 +419,7 @@
         <scene sceneID="Ahy-TF-CyY">
             <objects>
                 <navigationController title="Member View Navigation" automaticallyAdjustsScrollViewInsets="NO" id="RDc-N7-YI5" userLabel="Members View Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Books" image="Players" id="u5x-JL-xMA"/>
+                    <tabBarItem key="tabBarItem" title="" id="u5x-JL-xMA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TBw-EP-jRf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -444,7 +453,4 @@
             <point key="canvasLocation" x="1014" y="2018"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Players" width="30" height="30"/>
-    </resources>
 </document>
