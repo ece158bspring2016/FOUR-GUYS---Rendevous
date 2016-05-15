@@ -66,6 +66,9 @@ class ViewController : UIViewController {
             mapItem.openInMapsWithLaunchOptions(launchOptions)
         }
     }*/
+    
+    @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
+    }
 }
 
 extension ViewController : CLLocationManagerDelegate {

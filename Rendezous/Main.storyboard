@@ -334,6 +334,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Members" id="fNc-g8-J1b">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="IWl-jc-Az4" userLabel="Map">
+                            <connections>
+                                <segue destination="iAp-1o-uad" kind="unwind" unwindAction="backToMapViewController:" id="Ugu-VC-0Jr"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IN1-Hl-BYW">
                             <connections>
                                 <segue destination="K0t-QR-iP0" kind="presentation" id="6om-Ol-GxR"/>
@@ -342,6 +347,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6W-ec-BJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iAp-1o-uad" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1787" y="1138"/>
         </scene>
