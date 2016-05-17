@@ -28,6 +28,7 @@ class ViewController : UIViewController {
     @IBOutlet weak var eta_label: UILabel!
     @IBOutlet weak var background_label: UILabel!
     @IBOutlet weak var start_button: UIButton!
+    @IBOutlet weak var notifications_button: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class ViewController : UIViewController {
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
+        
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
@@ -188,4 +190,8 @@ extension ViewController : MKMapViewDelegate {
 
         return pinView
     }
+    
+    @IBAction func cancelTViewController(segue:UIStoryboardSegue) {
+    }
+
 }

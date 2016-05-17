@@ -19,6 +19,10 @@
 		8528CDCF1CE686E4003794D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDCE1CE686E4003794D5 /* SystemConfiguration.framework */; };
 		8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528CDD01CE691D3003794D5 /* SignInViewController.swift */; };
 		859671231CE7CC9F003644F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859671221CE7CC9E003644F3 /* Main.storyboard */; };
+		EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */; };
+		EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */; };
+		EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62681CEAADA400DE00A4 /* Event.swift */; };
+		EC9C626B1CEACF1F00DE00A4 /* EventsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */; };
 		FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */; };
 		FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247D1C2B10F5009E9908 /* ViewController.swift */; };
 		FC1E24831C2B10F5009E9908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24821C2B10F5009E9908 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 		8528CDCE1CE686E4003794D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8528CDD01CE691D3003794D5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		859671221CE7CC9E003644F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		EC9C62681CEAADA400DE00A4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController2.swift; sourceTree = "<group>"; };
 		FC1E24781C2B10F5009E9908 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC1E247D1C2B10F5009E9908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				676017D01CE7DAF6002784CC /* AddMemberViewController.swift */,
+				EC9C62681CEAADA400DE00A4 /* Event.swift */,
+				EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */,
+				EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */,
+				EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */,
 				676017D11CE7DAF6002784CC /* Member.swift */,
 				676017D21CE7DAF6002784CC /* MemberCell.swift */,
 				676017D31CE7DAF6002784CC /* MembersViewController.swift */,
@@ -139,7 +151,7 @@
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = NQTW4CBNTU;
+						DevelopmentTeam = A3ZS4943BE;
 					};
 				};
 			};
@@ -180,13 +192,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,
+				EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */,
+				EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */,
 				8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */,
+				EC9C626B1CEACF1F00DE00A4 /* EventsViewController2.swift in Sources */,
 				676017D51CE7DAF7002784CC /* Member.swift in Sources */,
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
 				676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */,
 				676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
+				EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +314,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lawchihon.MapKitTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidserrano.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 			};
 			name = Debug;
@@ -314,7 +330,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lawchihon.MapKitTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidserrano.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 			};
 			name = Release;
