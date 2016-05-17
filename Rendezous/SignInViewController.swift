@@ -150,5 +150,11 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
 }
