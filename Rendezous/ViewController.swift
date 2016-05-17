@@ -29,7 +29,7 @@ class ViewController : UIViewController {
     @IBOutlet weak var background_label: UILabel!
     @IBOutlet weak var start_button: UIButton!
     @IBOutlet weak var notifications_button: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -57,17 +57,17 @@ class ViewController : UIViewController {
         eta_label.text = nil
         background_label.backgroundColor = nil
         start_button.hidden = true
-
+        
     }
     
     /*
-    func getDirections(){
-        if let selectedPin = selectedPin {
-            let mapItem = MKMapItem(placemark: selectedPin)
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-            mapItem.openInMapsWithLaunchOptions(launchOptions)
-        }
-    }*/
+     func getDirections(){
+     if let selectedPin = selectedPin {
+     let mapItem = MKMapItem(placemark: selectedPin)
+     let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+     mapItem.openInMapsWithLaunchOptions(launchOptions)
+     }
+     }*/
     
     @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
     }
@@ -104,7 +104,7 @@ extension ViewController: HandleMapSearch {
         annotation.title = placemark.name
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
-                annotation.subtitle = "\(city) \(state)"
+            annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
@@ -134,18 +134,18 @@ extension ViewController : MKMapViewDelegate {
         
         //Update the info
         background_label.backgroundColor = UIColor.groupTableViewBackgroundColor()
-
+        
         let request = MKDirectionsRequest()
-
+        
         //print(locationManager.location)
         //print(MKMapItem.mapItemForCurrentLocation())
         //let current_location = MKPlacemark.init(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil)
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil))
         request.destination = MKMapItem(placemark: selectedPin!)
         request.transportType = MKDirectionsTransportType.Automobile
-    
+        
         let directions = MKDirections(request: request)
-        directions.calculateETAWithCompletionHandler { response, error -> Void in
+        directions.calculateDirectionsWithCompletionHandler { response, error -> Void in
             if let err = error {
                 //self.eta_label.text = err.userInfo["NSLocalizedFailureReason"] as? String
                 print(err.userInfo["NSLocalizedFailureReason"])
@@ -164,7 +164,8 @@ extension ViewController : MKMapViewDelegate {
             self.address_label.text = request.destination?.name
             
             // Calculate ETA
-            let expected_time = response!.expectedTravelTime
+            let current_route = response!.routes[0]
+            let expected_time = current_route.expectedTravelTime
             var expected_time_string: String
             expected_time_string = "ETA: "
             let days = Int(expected_time / (60*60*24))
@@ -184,17 +185,24 @@ extension ViewController : MKMapViewDelegate {
             }
             self.eta_label.text = expected_time_string
             member_data[0].eta = expected_time_string
-
+            
             //self.departure_time_label.text = "Departure Time: \(response!.expectedDepartureDate)"
-            self.arrival_time_label.text = "Arrival Time: \(response!.expectedArrivalDate)"
-            self.distance_label.text = "Distance: \(Float(response!.distance) * 0.000621371192) mile"
+            //self.arrival_time_label.text = "Arrival Time: \(response!.expectedArrivalDate)"
+            self.distance_label.text = "Distance: \(Float(current_route.distance) * 0.000621371192) mile"
             self.start_button.hidden = false
+            
+            mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
         }
-
+        
         return pinView
     }
     
-    @IBAction func cancelTViewController(segue:UIStoryboardSegue) {
+    // Give colors to the polyline
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let polylineOverlay = overlay as? MKPolyline
+        let render = MKPolylineRenderer(polyline: polylineOverlay!)
+        render.strokeColor = UIColor.blueColor()
+        return render
+        
     }
-
 }
