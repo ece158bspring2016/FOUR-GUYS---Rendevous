@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  MapKitTutorial
+//  Rendezvous
 //
-//  Created by Robert Chen on 12/23/15.
-//  Copyright © 2015 Thorn Technologies. All rights reserved.
+//  Created by John Law on 17/5/2016.
+//  Copyright © 2016 FOUR GUYS. All rights reserved.
 //
 
 import UIKit

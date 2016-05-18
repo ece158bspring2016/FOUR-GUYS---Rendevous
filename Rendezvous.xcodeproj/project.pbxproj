@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		673D3DA51CEC584F004DA86D /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D3DA41CEC584F004DA86D /* LocationSearchTable.swift */; };
 		676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D01CE7DAF6002784CC /* AddMemberViewController.swift */; };
 		676017D51CE7DAF7002784CC /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D11CE7DAF6002784CC /* Member.swift */; };
 		676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D21CE7DAF6002784CC /* MemberCell.swift */; };
 		676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D31CE7DAF6002784CC /* MembersViewController.swift */; };
+		67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */; };
+		67C7DEB11CEBE5610094C22F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7DEB01CEBE5610094C22F /* ViewController.swift */; };
+		67C7DEB31CEBE66B0094C22F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7DEB21CEBE66B0094C22F /* MapViewController.swift */; };
 		8528CDC51CE6867F003794D5 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC41CE6867F003794D5 /* Firebase.framework */; };
 		8528CDC71CE686BA003794D5 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC61CE686BA003794D5 /* libicucore.tbd */; };
 		8528CDC91CE686C6003794D5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC81CE686C6003794D5 /* libc++.tbd */; };
@@ -22,19 +26,19 @@
 		EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */; };
 		EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */; };
 		EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62681CEAADA400DE00A4 /* Event.swift */; };
-		EC9C626B1CEACF1F00DE00A4 /* EventsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */; };
-		FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */; };
-		FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247D1C2B10F5009E9908 /* ViewController.swift */; };
 		FC1E24831C2B10F5009E9908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24821C2B10F5009E9908 /* Assets.xcassets */; };
 		FC1E24861C2B10F5009E9908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */; };
-		FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		673D3DA41CEC584F004DA86D /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		676017D01CE7DAF6002784CC /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		676017D11CE7DAF6002784CC /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		676017D21CE7DAF6002784CC /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		676017D31CE7DAF6002784CC /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		67C7DEB01CEBE5610094C22F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		67C7DEB21CEBE66B0094C22F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8528CDC41CE6867F003794D5 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		8528CDC61CE686BA003794D5 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		8528CDC81CE686C6003794D5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -46,14 +50,10 @@
 		EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		EC9C62681CEAADA400DE00A4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController2.swift; sourceTree = "<group>"; };
 		FC1E24781C2B10F5009E9908 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC1E247D1C2B10F5009E9908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC1E24821C2B10F5009E9908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC1E24851C2B10F5009E9908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC1E24871C2B10F5009E9908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,18 +98,18 @@
 			isa = PBXGroup;
 			children = (
 				676017D01CE7DAF6002784CC /* AddMemberViewController.swift */,
+				67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */,
 				EC9C62681CEAADA400DE00A4 /* Event.swift */,
 				EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */,
 				EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */,
-				EC9C626A1CEACF1F00DE00A4 /* EventsViewController2.swift */,
+				673D3DA41CEC584F004DA86D /* LocationSearchTable.swift */,
+				859671221CE7CC9E003644F3 /* Main.storyboard */,
+				67C7DEB21CEBE66B0094C22F /* MapViewController.swift */,
 				676017D11CE7DAF6002784CC /* Member.swift */,
 				676017D21CE7DAF6002784CC /* MemberCell.swift */,
 				676017D31CE7DAF6002784CC /* MembersViewController.swift */,
-				FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */,
-				FC1E247D1C2B10F5009E9908 /* ViewController.swift */,
 				8528CDD01CE691D3003794D5 /* SignInViewController.swift */,
-				859671221CE7CC9E003644F3 /* Main.storyboard */,
-				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
+				67C7DEB01CEBE5610094C22F /* ViewController.swift */,
 				FC1E24821C2B10F5009E9908 /* Assets.xcassets */,
 				FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */,
 				FC1E24871C2B10F5009E9908 /* Info.plist */,
@@ -147,11 +147,19 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Thorn Technologies";
+				ORGANIZATIONNAME = "FOUR GUYS";
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = A3ZS4943BE;
+						DevelopmentTeam = PNU7AS5372;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -191,17 +199,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */,
 				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,
 				EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */,
+				673D3DA51CEC584F004DA86D /* LocationSearchTable.swift in Sources */,
 				EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */,
+				67C7DEB11CEBE5610094C22F /* ViewController.swift in Sources */,
 				8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */,
-				EC9C626B1CEACF1F00DE00A4 /* EventsViewController2.swift in Sources */,
 				676017D51CE7DAF7002784CC /* Member.swift in Sources */,
-				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
+				67C7DEB31CEBE66B0094C22F /* MapViewController.swift in Sources */,
 				676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */,
 				676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */,
-				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
-				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 				EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +323,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidserrano.Rendezvous;
+				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 			};
 			name = Debug;
@@ -323,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -330,7 +340,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidserrano.Rendezvous;
+				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 			};
 			name = Release;

@@ -1,9 +1,9 @@
 //
 //  LocationSearchTable.swift
-//  MapKitTutorial
+//  Rendezvous
 //
-//  Created by Robert Chen on 12/28/15.
-//  Copyright © 2015 Thorn Technologies. All rights reserved.
+//  Created by John Law on 18/5/2016.
+//  Copyright © 2016 FOUR GUYS. All rights reserved.
 //
 
 import UIKit

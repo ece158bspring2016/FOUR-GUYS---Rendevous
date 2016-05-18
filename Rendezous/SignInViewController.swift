@@ -3,7 +3,7 @@
 //  Rendezvous
 //
 //  Created by Jason Lu on 5/13/16.
-//  Copyright © 2016 Thorn Technologies. All rights reserved.
+//  Copyright © 2016 FOUR GUYS. All rights reserved.
 //
 
 import UIKit
