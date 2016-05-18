@@ -37,7 +37,7 @@
 		676017D31CE7DAF6002784CC /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67C7DEB21CEBE66B0094C22F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		8528CDC41CE6867F003794D5 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Rendezous/Firebase.framework; sourceTree = "<group>"; };
+		8528CDC41CE6867F003794D5 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Rendezvous/Firebase.framework; sourceTree = "<group>"; };
 		8528CDC61CE686BA003794D5 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		8528CDC81CE686C6003794D5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		8528CDCA1CE686CF003794D5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -59,12 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8528CDC51CE6867F003794D5 /* Firebase.framework in Frameworks */,
 				8528CDCF1CE686E4003794D5 /* SystemConfiguration.framework in Frameworks */,
 				8528CDCD1CE686DA003794D5 /* Security.framework in Frameworks */,
 				8528CDCB1CE686CF003794D5 /* CFNetwork.framework in Frameworks */,
 				8528CDC91CE686C6003794D5 /* libc++.tbd in Frameworks */,
 				8528CDC71CE686BA003794D5 /* libicucore.tbd in Frameworks */,
-				8528CDC51CE6867F003794D5 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +74,10 @@
 		67D3EEBE1CEC5D840001EFFA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				8528CDCA1CE686CF003794D5 /* CFNetwork.framework */,
 				8528CDC41CE6867F003794D5 /* Firebase.framework */,
 				8528CDCE1CE686E4003794D5 /* SystemConfiguration.framework */,
 				8528CDCC1CE686DA003794D5 /* Security.framework */,
-				8528CDCA1CE686CF003794D5 /* CFNetwork.framework */,
 			);
 			name = Framework;
 			path = ..;
@@ -130,8 +130,7 @@
 				67D3EEBE1CEC5D840001EFFA /* Framework */,
 				67D3EEBF1CEC5FDC0001EFFA /* Library */,
 			);
-			name = Rendezvous;
-			path = Rendezous;
+			path = Rendezvous;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,9 +332,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Rendezous",
+					"$(PROJECT_DIR)/Rendezvous",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Rendezvous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
@@ -350,9 +349,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Rendezous",
+					"$(PROJECT_DIR)/Rendezvous",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Rendezous/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Rendezvous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
