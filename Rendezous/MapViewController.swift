@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  Rendezvous
 //
 //  Created by John Law on 17/5/2016.
@@ -9,14 +9,10 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
-}
-
-class ViewController : UIViewController {
+class MapViewController : UIViewController {
     
     var selectedPin:MKPlacemark? = nil
-    
+
     var resultSearchController:UISearchController? = nil
     
     let locationManager = CLLocationManager()
@@ -73,7 +69,7 @@ class ViewController : UIViewController {
     }
 }
 
-extension ViewController : CLLocationManagerDelegate {
+extension MapViewController : CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.requestLocation()
@@ -93,7 +89,7 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
-extension ViewController: HandleMapSearch {
+extension MapViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -113,7 +109,7 @@ extension ViewController: HandleMapSearch {
     }
 }
 
-extension ViewController : MKMapViewDelegate {
+extension MapViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
