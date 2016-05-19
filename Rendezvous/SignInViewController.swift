@@ -15,8 +15,37 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var usernameField: UITextField!
 
+    
+    @IBAction func SignUp(sender: AnyObject) {
+        self.performSegueWithIdentifier("createAccountSegue", sender: nil)
+    }
+
+    @IBAction func SignIn(sender: AnyObject) {
+        ref.authUser(emailField.text!, password: passwordField.text!, withCompletionBlock: { error, authData in
+            
+            if self.emailField.text == "" && self.passwordField.text == ""
+            {
+                self.pleaseSignIn()
+            }
+            
+            if error != nil
+            {
+                print("Unable to sign in user")
+                self.cannotSignIn()
+                
+            }
+            else {
+                let uid = authData.uid
+                print("Login successful with uid: \(uid)")
+                
+                //let user = ["username" : self.usernameField.text!]
+                //self.ref.childByAppendingPath("USERS/\(uid)").setValue(user)
+                self.performSegueWithIdentifier("segueToMap", sender: nil)
+            }
+        })
+    }
+    /*
     @IBAction func handleSignIn(sender: AnyObject) {
         ref.authUser(emailField.text!, password: passwordField.text!, withCompletionBlock: { error, authData in
             
@@ -35,14 +64,16 @@ class SignInViewController: UIViewController {
             let uid = authData.uid
             print("Login successful with uid: \(uid)")
             
-            let user = ["username" : self.usernameField.text!]
-            self.ref.childByAppendingPath("USERS/\(uid)").setValue(user)
+            //let user = ["username" : self.usernameField.text!]
+            //self.ref.childByAppendingPath("USERS/\(uid)").setValue(user)
             self.performSegueWithIdentifier("segueToMap", sender: nil)
         }
             
         })
+ 
     }
-    
+    */
+    /*
     @IBAction func handleCreateAccount(sender: AnyObject) {
         ref.createUser(emailField.text!, password: passwordField.text!, withValueCompletionBlock: { error, result in
             
@@ -64,7 +95,7 @@ class SignInViewController: UIViewController {
             }
         })
     }
-    
+    */
     
 
     
@@ -81,7 +112,7 @@ class SignInViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    
+    /*
     func cannotCreateAccount () {
         let alert = UIAlertController (title :"Unable to Create Account",
                     message: "Email already exists",
@@ -96,7 +127,8 @@ class SignInViewController: UIViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
+    */
+ 
     func pleaseSignIn () {
         let alert = UIAlertController (title :"Unable to Sign In",
                                        message: "Enter your email and password",
@@ -112,6 +144,7 @@ class SignInViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    /*
     func pleaseCreateAccount () {
         let alert = UIAlertController (title :"Unable to Create Account",
                                        message: "Enter your email, username and password",
@@ -126,7 +159,7 @@ class SignInViewController: UIViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
+    */
     
     
     override func viewDidLoad() {
