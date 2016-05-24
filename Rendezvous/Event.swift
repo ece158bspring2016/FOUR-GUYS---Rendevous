@@ -7,48 +7,47 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 
-var event_data = [Event(event_name:"Kanye West's Birgdsgsthday", sender: "Kanye West")]
-
-
-// Firebase reference
-//let ref = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/event1")
-//
-//
-//func populateEvents() {
-//    
-//    // Do any additional setup after loading the view.
-//    
-//    // Attach a closure to read the data when there are updates
-//    ref.observeEventType(.Value, withBlock: { snapshot in
-//        print(snapshot.value)
-//        print(snapshot.value.objectForKey("Sender")!)
-//        
-//        var event_data = [Event(event_name:"\(snapshot.value.objectForKey("EventName"))", sender: "\(snapshot.value.objectForKey("Sender"))")]
-//        
-//        }, withCancelBlock: { error in
-//            print(error.description)
-//            
-//    })
-
-//    var event_data = [Event(event_name:"\(snapshot.value)", sender: nil)]
+class Event {
     
+    // Firebase references
+    private var _baseRef: Firebase!
+    private var _eventKey: String!
     
-
-
-
-// TODO
-//var event_data = [Event(event_name:"\(ref.getValue())", sender: nil)]
-
-struct Event {
-    var event_name: String?
-    var sender: String?
+    private var event_name: String!
+    private var sender: String!
     
-    init(event_name: String?, sender: String?) {
-        self.event_name = event_name
-        self.sender = sender
+    var eventKey: String {
+        return _eventKey
+    }
+    
+    var eventName: String {
+        return event_name
+    }
+    
+    var senderName: String {
+        return sender
+    }
+    
+    // Initialize a new event
+    init(key: String, dictionary: Dictionary<String, AnyObject>) {
+        self._eventKey = key
         
-        //print("Adding %s", event_name)
+        print("THE KEY IS::::::::::::::::::::")
+        print(key)
+        print("END KEY:::::::::::::::::::::::")
+        
+        if let event = dictionary["EventName"] as? String {
+            self.event_name = event
+        }
+        
+        if let eventStarter = dictionary["Sender"] as? String {
+            self.sender = eventStarter
+        }
+
+        // Assign above properties to their key
+        self._baseRef = DataService.dataService.EVENT_REF.childByAppendingPath(self._eventKey)
+
     }
 }

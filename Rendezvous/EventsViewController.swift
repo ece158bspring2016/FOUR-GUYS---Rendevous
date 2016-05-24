@@ -9,48 +9,57 @@
 import UIKit
 import Firebase
 
-class EventsViewController: UIViewController {
+class EventsViewController: UITableViewController {
     
-    //var events:[Event] = event_data
+    // Define events array
     var events:[Event] = []
-    var events_data:[Event] = []
-
     
-    // Firebase reference
-    let ref = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/event1")
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        Event.populateEvents()
-        
-        // Do any additional setup after loading the view.
-        
-        // Attach a closure to read the data when there are updates
-//        ref.observeEventType(.Value, withBlock: { snapshot in
-//            print(snapshot.value)
-//            print(snapshot.value.objectForKey("EventName"), snapshot.value.objectForKey("Sender"))
-//            
-//            self.events.append(Event(event_name:"\(snapshot.value.objectForKey("EventName"))?", sender: "\(snapshot.value.objectForKey("Sender"))"))
-//            
-//            var whatsHere = "\(snapshot.value.objectForKey("EventName"))!"
-//
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//            
-//        })
-        
-        self.populateEvents()
-        //events = self.populateEvents()
-        
-        //event_data.append(Event(event_name:"\(snapshot.value.objectForKey("EventName"))?", sender: "\(snapshot.value.objectForKey("Sender"))?"))
-        events = event_data
 
+        // Uncomment the following line to preserve selection between presentations
+         //self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        print("EVENT SHIT")
-        print(events.first?.event_name)
-        print("End Events Shit")
+        // Reference to events tree
+        DataService.dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            // The snapshot into the events data
+            print(snapshot.value)
+            
+            self.events = []
+            
+            // Access database to populate events array
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snapshots {
+                    
+                    if let eventDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let evented = Event(key: key, dictionary: eventDictionary)
+                        
+                        print("KEY and Dictionary")
+                        print(key)
+                
+                        /* Debug */
+                        for (key, value) in eventDictionary {
+                            print("\(key) -> \(value)")
+                        }
+
+                
+                        // Insert event into events array
+                        self.events.insert(evented, atIndex:0)
+                
+                        }
+                    }
+                }
+            
+            // Update data on cell
+            self.tableView.reloadData()
+        })
 
     }
 
@@ -58,82 +67,78 @@ class EventsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // Return the number of sections
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return events.count
     }
+
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        // A single event
+        let event = events[indexPath.row]
+
         // Configure the cell...
-        
-        let event = events[indexPath.row] as Event
-        cell.event = event
-        
-        return cell
-    }
+        if let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as? EventCellTableViewCell {
+            
+            // Send the single joke to configureCell() in EventCellTableViewCell.
+            
+            cell.configureCell(event)
+            
+            return cell
+            
+        } else {
+            
+            return EventCellTableViewCell()
+            
+        }
 
-    func populateEvents() {
-        
-        var temp: [Event] = []
-//
-//        ref.observeEventType(.Value, withBlock: { snapshot in
-//            print(snapshot.value)
-//            print(snapshot.value.objectForKey("EventName"), snapshot.value.objectForKey("Sender"))
-//            
-//            temp.append(Event(event_name:"\(snapshot.value.objectForKey("EventName"))?", sender: "\(snapshot.value.objectForKey("Sender"))"))
-//            
-//            var whatsHere = "\(snapshot.value.objectForKey("EventName"))"
-//            
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//                
-//        })
-//        
-//        print("TEMP:")
-//        print(temp.first)
-//        
-//        return temp
-        
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if snapshot.value is NSNull {
-                
-            } else {
-                //init myArray var and then fill with values
-                //for child in snapshot.children {
-                self.events_data.append(Event(event_name:"\(snapshot.value.objectForKey("EventName"))", sender: "\(snapshot.value.objectForKey("Sender"))"))
-                    print("\(snapshot.value.objectForKey("EventName"))")
-                //}
-                
-                //now that we have filled the array, we can generate
-                //  random numbers and pull quotes from it
-                
-                print("Inside Loop")
-                print(self.events_data.first?.event_name!)
-                print("End Inside Loop")
-
-            }
-        })
-        
-        print(self.events_data)
-        
-//        //update the tableView
-//        let indexPath = NSIndexPath(forRow: events.count-1, inSection: 0)
-//        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-
-
-
-        //return temp
         
     }
     
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
 
     /*
     // MARK: - Navigation
