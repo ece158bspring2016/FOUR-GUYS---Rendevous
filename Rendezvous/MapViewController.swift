@@ -141,10 +141,13 @@ extension MapViewController : MKMapViewDelegate {
         //print(MKMapItem.mapItemForCurrentLocation())
         //let current_location = MKPlacemark.init(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil)
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil))
+       // request.source = MKMapItem.mapItemForCurrentLocation()
+     
         request.destination = MKMapItem(placemark: selectedPin!)
         request.transportType = MKDirectionsTransportType.Automobile
         
         let directions = MKDirections(request: request)
+        
         directions.calculateDirectionsWithCompletionHandler { response, error -> Void in
             if let err = error {
                 //self.eta_label.text = err.userInfo["NSLocalizedFailureReason"] as? String
@@ -170,6 +173,14 @@ extension MapViewController : MKMapViewDelegate {
             expected_time_string = "ETA: "
             let days = Int(expected_time / (60*60*24))
             let hours = Int(expected_time / (60*60)) % 24
+            // 
+            
+            //let expectedArrivalDate = currentDate.dateByAddingTimeInterval(expected_time)
+            //let components = calendar.components([ .Hour, .Minute, .Second], fromDate: currentDate)
+            
+            
+            var expectedArrivalDate_string: String = "Arrival: "
+            //
             var min = Int(expected_time / 60) % 60
             if (Double(min) != (expected_time / 60) % 60) {
                 min += 1
@@ -183,14 +194,52 @@ extension MapViewController : MKMapViewDelegate {
             if (min > 0) {
                 expected_time_string = expected_time_string.stringByAppendingString("\(min)min ")
             }
+            /*let ahours = components.hour + hours
+            let aminutes = components.minute + min
+            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahours)hr")
+            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(aminutes)min")
+            */
+            let calendar = NSCalendar.currentCalendar()
+            let adate = NSDate()
+            let components = calendar.components([ .Hour, .Minute, .Second, .Day, .Month, .Year], fromDate: adate)
+            
+
+            var ahour : Int  = components.hour + hours
+            var aminutes : Int = components.minute + min
+            let amonth : Int = components.month
+            let ayear : Int = components.year
+            var aday  = components.day + days
+            if (aminutes > 60)
+            {
+                aminutes = aminutes - 60
+                ahour = ahour + 1
+            }
+            while (ahour >= 24)
+            {
+                ahour = ahour - 24
+                
+                aday = aday + 1
+            }
+            if (ahour > 12){
+                print(ahour)
+               expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12) : \(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
+            }
+            else {
+                expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour) : \(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
+            }
+            
+            //print("1 week and 12 hours from now: \(calendar.dateByAddingComponents(components, toDate: date, options: []))")
+            
             self.eta_label.text = expected_time_string
             member_data[0].eta = expected_time_string
             
+            
             //self.departure_time_label.text = "Departure Time: \(response!.expectedDepartureDate)"
-            //self.arrival_time_label.text = "Arrival Time: \(response!.expectedArrivalDate)"
+            self.arrival_time_label.text = expectedArrivalDate_string
             self.distance_label.text = "Distance: \(Float(current_route.distance) * 0.000621371192) mile"
             self.start_button.hidden = false
-            
+            //self.arrival_time_label
+            mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
         }
         
