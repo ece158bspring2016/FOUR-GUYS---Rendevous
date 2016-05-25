@@ -23,7 +23,8 @@
 		8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528CDD01CE691D3003794D5 /* SignInViewController.swift */; };
 		859671231CE7CC9F003644F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859671221CE7CC9E003644F3 /* Main.storyboard */; };
 		85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */; };
-		EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */; };
+		EC03D6661CF509180026ECF2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC03D6651CF509180026ECF2 /* DataService.swift */; };
+		EC784C351CF512CB001634C8 /* EventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */; };
 		EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */; };
 		EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62681CEAADA400DE00A4 /* Event.swift */; };
 		FC1E24831C2B10F5009E9908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24821C2B10F5009E9908 /* Assets.xcassets */; };
@@ -47,7 +48,8 @@
 		8528CDD01CE691D3003794D5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		859671221CE7CC9E003644F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		EC03D6651CF509180026ECF2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellTableViewCell.swift; sourceTree = "<group>"; };
 		EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		EC9C62681CEAADA400DE00A4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FC1E24781C2B10F5009E9908 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,12 +118,13 @@
 			children = (
 				676017D01CE7DAF6002784CC /* AddMemberViewController.swift */,
 				67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */,
+				85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */,
+				EC03D6651CF509180026ECF2 /* DataService.swift */,
 				EC9C62681CEAADA400DE00A4 /* Event.swift */,
-				EC9C62641CEAAA6B00DE00A4 /* EventCell.swift */,
+				EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */,
 				EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */,
 				673D3DA41CEC584F004DA86D /* LocationSearchTable.swift */,
 				859671221CE7CC9E003644F3 /* Main.storyboard */,
-				85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */,
 				67C7DEB21CEBE66B0094C22F /* MapViewController.swift */,
 				676017D11CE7DAF6002784CC /* Member.swift */,
 				676017D21CE7DAF6002784CC /* MemberCell.swift */,
@@ -168,7 +171,7 @@
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = PNU7AS5372;
+						DevelopmentTeam = A3ZS4943BE;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -217,11 +220,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */,
+				EC03D6661CF509180026ECF2 /* DataService.swift in Sources */,
 				67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */,
 				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,
 				EC9C62691CEAADA400DE00A4 /* Event.swift in Sources */,
+				EC784C351CF512CB001634C8 /* EventCellTableViewCell.swift in Sources */,
 				673D3DA51CEC584F004DA86D /* LocationSearchTable.swift in Sources */,
-				EC9C62651CEAAA6B00DE00A4 /* EventCell.swift in Sources */,
 				8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */,
 				676017D51CE7DAF7002784CC /* Member.swift in Sources */,
 				67C7DEB31CEBE66B0094C22F /* MapViewController.swift in Sources */,

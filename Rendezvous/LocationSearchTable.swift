@@ -13,17 +13,6 @@ class LocationSearchTable : UITableViewController {
     var handleMapSearchDelegate:HandleMapSearch? = nil
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
-//    var destination = ""
-    
-//    var DESTINATION: String {
-//        get {
-//            return destination
-//        }
-//        set (dest) {
-//            self.destination = dest
-//        }
-//    }
-
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
@@ -48,7 +37,6 @@ class LocationSearchTable : UITableViewController {
         )
         return addressLine
     }
-    
 }
 
 extension LocationSearchTable : UISearchResultsUpdating {

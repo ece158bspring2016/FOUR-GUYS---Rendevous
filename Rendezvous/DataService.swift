@@ -3,7 +3,7 @@
 //  Rendezvous
 //
 //  Created by David Serrano on 5/21/16.
-//  Copyright © 2016 Thorn Technologies. All rights reserved.
+//  Copyright © 2016 FOUR GUYS. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ import Firebase
 class DataService {
     static let dataService = DataService()
     
-    static let BASE_URL = "https://rendezvous-9f2a3.firebaseio.com/"
+    static let BASE_URL = "https://rend-ezvous.firebaseio.com/"
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")
     //private var _CURRENT_EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")
@@ -61,7 +61,7 @@ class DataService {
             return CURRENT_EVENT_URL
         }
         set (current_event_ref) {
-            self.CURRENT_EVENT_URL = "(https://rendezvous-9f2a3.firebaseio.com/EVENTS/\(currentEventID)/"
+            self.CURRENT_EVENT_URL = "(https://rend-ezvous.firebaseio.com/EVENTS/\(currentEventID)/"
         }
     }
     
