@@ -51,7 +51,6 @@ class MapViewController : UIViewController {
         locationSearchTable.handleMapSearchDelegate = self
         
         address_label.text = nil
-        //departure_time_label.text = nil
         arrival_time_label.text = nil
         distance_label.text = nil
         eta_label.text = nil
@@ -59,15 +58,6 @@ class MapViewController : UIViewController {
         start_button.hidden = true
         
     }
-    
-    /*
-     func getDirections(){
-     if let selectedPin = selectedPin {
-     let mapItem = MKMapItem(placemark: selectedPin)
-     let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-     mapItem.openInMapsWithLaunchOptions(launchOptions)
-     }
-     }*/
     
     @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
     }
@@ -95,9 +85,7 @@ extension MapViewController : CLLocationManagerDelegate {
 
 extension MapViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
-        // cache the pin
         selectedPin = placemark
-        // clear existing pins
         mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
@@ -116,7 +104,6 @@ extension MapViewController: HandleMapSearch {
 extension MapViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
-            //return nil so map view draws "blue dot" for standard user location
             return nil
         }
         let reuseId = "pin"
@@ -125,23 +112,11 @@ extension MapViewController : MKMapViewDelegate {
         pinView?.pinTintColor = UIColor.orangeColor()
         pinView?.canShowCallout = true
         
-        //Not letting user go to apple's map
-        //let smallSquare = CGSize(width: 30, height: 30)
-        //let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-        //button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
-        //button.addTarget(self, action: #selector(ViewController.getDirections), forControlEvents: .TouchUpInside)
-        //pinView?.leftCalloutAccessoryView = button
-        
-        //Update the info
         background_label.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
         let request = MKDirectionsRequest()
         
-        //print(locationManager.location)
-        //print(MKMapItem.mapItemForCurrentLocation())
-        //let current_location = MKPlacemark.init(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil)
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: (locationManager.location?.coordinate)!, addressDictionary: nil))
-       // request.source = MKMapItem.mapItemForCurrentLocation()
      
         request.destination = MKMapItem(placemark: selectedPin!)
         request.transportType = MKDirectionsTransportType.Automobile
@@ -150,7 +125,7 @@ extension MapViewController : MKMapViewDelegate {
         
         directions.calculateDirectionsWithCompletionHandler { response, error -> Void in
             if let err = error {
-                //self.eta_label.text = err.userInfo["NSLocalizedFailureReason"] as? String
+
                 print(err.userInfo["NSLocalizedFailureReason"])
                 return
             }
@@ -158,11 +133,6 @@ extension MapViewController : MKMapViewDelegate {
             let nf = NSNumberFormatter()
             nf.numberStyle = NSNumberFormatterStyle.DecimalStyle
             nf.maximumFractionDigits = 0
-            
-            //print(response!.expectedTravelTime)
-            //print(response!.expectedDepartureDate.year)
-            //print(response!.expectedArrivalDate)
-            //print(response!.distance)
             
             self.address_label.text = request.destination?.name
             
@@ -173,7 +143,6 @@ extension MapViewController : MKMapViewDelegate {
             expected_time_string = "ETA: "
             let days = Int(expected_time / (60*60*24))
             let hours = Int(expected_time / (60*60)) % 24
-            // 
             
             //let expectedArrivalDate = currentDate.dateByAddingTimeInterval(expected_time)
             //let components = calendar.components([ .Hour, .Minute, .Second], fromDate: currentDate)
@@ -222,23 +191,20 @@ extension MapViewController : MKMapViewDelegate {
             }
             if (ahour > 12){
                 print(ahour)
-               expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12) : \(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
+               expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
             }
             else {
-                expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour) : \(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
+                expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
             }
             
-            //print("1 week and 12 hours from now: \(calendar.dateByAddingComponents(components, toDate: date, options: []))")
             
             self.eta_label.text = expected_time_string
             member_data[0].eta = expected_time_string
             
-            
-            //self.departure_time_label.text = "Departure Time: \(response!.expectedDepartureDate)"
             self.arrival_time_label.text = expectedArrivalDate_string
-            self.distance_label.text = "Distance: \(Float(current_route.distance) * 0.000621371192) mile"
+            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile"
             self.start_button.hidden = false
-            //self.arrival_time_label
+
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
         }
