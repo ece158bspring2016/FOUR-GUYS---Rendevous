@@ -155,13 +155,13 @@ extension MapViewController : MKMapViewDelegate {
                 min += 1
             }
             if (days > 0) {
-                expected_time_string = expected_time_string.stringByAppendingString("\(days)d ")
+                expected_time_string = expected_time_string.stringByAppendingString("\(days) d ")
             }
             if (hours > 0) {
-                expected_time_string = expected_time_string.stringByAppendingString("\(hours)hr ")
+                expected_time_string = expected_time_string.stringByAppendingString("\(hours) hr ")
             }
             if (min > 0) {
-                expected_time_string = expected_time_string.stringByAppendingString("\(min)min ")
+                expected_time_string = expected_time_string.stringByAppendingString("\(min) min ")
             }
             /*let ahours = components.hour + hours
             let aminutes = components.minute + min
@@ -202,7 +202,7 @@ extension MapViewController : MKMapViewDelegate {
             member_data[0].eta = expected_time_string
             
             self.arrival_time_label.text = expectedArrivalDate_string
-            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile"
+            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile(s)"
             self.start_button.hidden = false
 
             mapView.removeOverlays(mapView.overlays)
