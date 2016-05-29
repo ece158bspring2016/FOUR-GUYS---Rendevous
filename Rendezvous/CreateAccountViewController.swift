@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     let ref = Firebase(url: "https://rend-ezvous.firebaseio.com")
     
@@ -46,6 +46,11 @@ class CreateAccountViewController: UIViewController {
                 self.ref.childByAppendingPath("USERS/\(number)").setValue(name)
 
                 user_info = UserInfo.init(name: self.nameField.text!, uid: uid!)
+                
+                
+                //let user = ["username" : self.usernameField.text!]
+                //self.ref.childByAppendingPath("USERS/\(uid)").setValue(name)
+                //self.ref.childByAppendingPath("USERS/\(uid)").setValue(number)
                 
                 self.performSegueWithIdentifier("segueToMap", sender: nil)
             }
@@ -85,8 +90,13 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        nameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        phoneNumberField.delegate = self
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,15 +104,12 @@ class CreateAccountViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Dismiss the keyboard when the user taps the "Return" key or its equivalent
+    // while editing a text field.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
-    */
-
+    
 }
+
