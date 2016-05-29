@@ -41,6 +41,16 @@ class SignInViewController: UIViewController {
                 
                 //let user = ["username" : self.usernameField.text!]
                 //self.ref.childByAppendingPath("USERS/\(uid)").setValue(user)
+                
+                let user_ref = self.ref.childByAppendingPath("USERS/\(uid)/Name")
+                user_ref.observeEventType(.Value, withBlock: { snapshot in
+                    //print(snapshot.value)
+                    user_info = UserInfo.init(name: snapshot.value as! String, uid: uid!)
+                    }, withCancelBlock: { error in
+                        print(error.description)
+                })
+
+                
                 self.performSegueWithIdentifier("segueToMap", sender: nil)
             }
         })

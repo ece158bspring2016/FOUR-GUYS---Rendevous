@@ -9,9 +9,10 @@
 import Foundation
 import Firebase
 
+let dataService = DataService()
+
 class DataService {
-    static let dataService = DataService()
-    
+
     static let BASE_URL = "https://rend-ezvous.firebaseio.com/"
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")

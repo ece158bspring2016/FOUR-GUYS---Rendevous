@@ -12,6 +12,7 @@
 		676017D51CE7DAF7002784CC /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D11CE7DAF6002784CC /* Member.swift */; };
 		676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D21CE7DAF6002784CC /* MemberCell.swift */; };
 		676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676017D31CE7DAF6002784CC /* MembersViewController.swift */; };
+		67B573D81CFA7D0A0018F81C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B573D71CFA7D0A0018F81C /* UserInfo.swift */; };
 		67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */; };
 		67C7DEB31CEBE66B0094C22F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7DEB21CEBE66B0094C22F /* MapViewController.swift */; };
 		8528CDC51CE6867F003794D5 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDC41CE6867F003794D5 /* Firebase.framework */; };
@@ -37,6 +38,7 @@
 		676017D11CE7DAF6002784CC /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		676017D21CE7DAF6002784CC /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		676017D31CE7DAF6002784CC /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		67B573D71CFA7D0A0018F81C /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67C7DEB21CEBE66B0094C22F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8528CDC41CE6867F003794D5 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Rendezvous/Firebase.framework; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				676017D01CE7DAF6002784CC /* AddMemberViewController.swift */,
 				67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */,
 				85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */,
+				67B573D71CFA7D0A0018F81C /* UserInfo.swift */,
 				EC03D6651CF509180026ECF2 /* DataService.swift */,
 				EC9C62681CEAADA400DE00A4 /* Event.swift */,
 				EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */,
@@ -171,7 +174,7 @@
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 2XRLZL8CKX;
+						DevelopmentTeam = PNU7AS5372;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -231,6 +234,7 @@
 				67C7DEB31CEBE66B0094C22F /* MapViewController.swift in Sources */,
 				676017D41CE7DAF7002784CC /* AddMemberViewController.swift in Sources */,
 				676017D61CE7DAF7002784CC /* MemberCell.swift in Sources */,
+				67B573D81CFA7D0A0018F81C /* UserInfo.swift in Sources */,
 				EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +349,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezvous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GuysRen;
+				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 				PROVISIONING_PROFILE = "";
 			};
@@ -364,7 +368,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Rendezvous/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GuysRen;
+				PRODUCT_BUNDLE_IDENTIFIER = FOUR.GUYS.Rendezvous;
 				PRODUCT_NAME = Rendezvous;
 				PROVISIONING_PROFILE = "";
 			};

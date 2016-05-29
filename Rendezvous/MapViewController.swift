@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
@@ -29,7 +30,7 @@ class MapViewController : UIViewController {
     @IBOutlet weak var background_label: UILabel!
     @IBOutlet weak var start_button: UIButton!
     @IBOutlet weak var notifications_button: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -60,6 +61,10 @@ class MapViewController : UIViewController {
     }
     
     @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
+    }
+
+    @IBAction func startEvent() {
+        cur_event.startEvent()
     }
 }
 
@@ -134,7 +139,9 @@ extension MapViewController : MKMapViewDelegate {
             nf.numberStyle = NSNumberFormatterStyle.DecimalStyle
             nf.maximumFractionDigits = 0
             
-            self.address_label.text = request.destination?.name
+            let address: String = (request.destination?.name)!
+            
+            self.address_label.text = address
             
             // Calculate ETA
             let current_route = response!.routes[0]
@@ -189,14 +196,18 @@ extension MapViewController : MKMapViewDelegate {
                 
                 aday = aday + 1
             }
+
+            let arrival_time: String!
             if (ahour > 12){
-                print(ahour)
-               expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
+                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
+                arrival_time = "\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
             }
             else {
-                expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
+                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
+                arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
             }
-            
+
+            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
             self.eta_label.text = expected_time_string
             member_data[0].eta = expected_time_string
@@ -207,6 +218,8 @@ extension MapViewController : MKMapViewDelegate {
 
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
+            
+            cur_event = Event.init(destination: address, arrival_time: arrival_time)
         }
         
         return pinView

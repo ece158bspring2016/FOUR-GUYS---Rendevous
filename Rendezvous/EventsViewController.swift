@@ -25,7 +25,7 @@ class EventsViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Reference to events tree
-        DataService.dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
+        dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot into the events data
             print(snapshot.value)

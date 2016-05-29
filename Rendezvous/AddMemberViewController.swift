@@ -40,13 +40,13 @@ class AddMemberViewController: UITableViewController {
             member = Member(name: email_textfield.text!, eta: "Pending")
             
             let newEvent: Dictionary<String, AnyObject> = [
-                "EventName": DataService.dataService.DESTINATION,
+                "EventName": dataService.DESTINATION,
                 "Sender"   : currentUser,
                 "Guests"   : ""
             ]
             
             // Call to save to firebase
-            DataService.dataService.createNewEvent(newEvent)
+            dataService.createNewEvent(newEvent)
             
             print("event path is ")
             //print(DataService.dataService.CURRENT_EVENT_REF)

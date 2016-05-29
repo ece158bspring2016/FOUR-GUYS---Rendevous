@@ -44,6 +44,8 @@ class CreateAccountViewController: UIViewController {
                 let number = self.phoneNumberField.text!
                 let name = ["Username" : self.nameField.text!]
                 self.ref.childByAppendingPath("USERS/\(number)").setValue(name)
+
+                user_info = UserInfo.init(name: self.nameField.text!, uid: uid!)
                 
                 self.performSegueWithIdentifier("segueToMap", sender: nil)
             }
