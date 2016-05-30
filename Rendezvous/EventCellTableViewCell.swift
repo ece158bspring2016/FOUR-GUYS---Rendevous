@@ -17,12 +17,12 @@ class EventCellTableViewCell: UITableViewCell {
     var event: Event!
     var eventRef: Firebase!
     
-    func configureCell(event: Event) {
-        self.event = event
+    func configureCell(event: String) {
+        //self.event = event
         
         // Set the labels
-        self.eventName.text = event.eventName
-        self.senderName.text = event.senderName
+        self.eventName.text = event
+        //self.senderName.text = event.senderName
     }
 
     override func awakeFromNib() {

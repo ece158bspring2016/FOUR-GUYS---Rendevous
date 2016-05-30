@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var cur_event: Event!
+
 class Event {
     
     // Firebase references
@@ -17,6 +19,9 @@ class Event {
     
     private var event_name: String!
     private var sender: String!
+    
+    private var destination: String!
+    private var arrival_time: String!
     
     var eventKey: String {
         return _eventKey
@@ -47,7 +52,29 @@ class Event {
         }
 
         // Assign above properties to their key
-        self._baseRef = DataService.dataService.EVENT_REF.childByAppendingPath(self._eventKey)
+        self._baseRef = dataService.EVENT_REF.childByAppendingPath(self._eventKey)
 
+    }
+    
+    init(destination: String, arrival_time: String) {
+        self.destination = destination
+        self.arrival_time = arrival_time
+    }
+    
+    func startEvent() {
+        /*
+        let event_ref = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS")
+        let new_event = event_ref.childByAutoId()
+        
+        new_event.childByAppendingPath("Destination").setValue(self.destination)
+        
+        new_event.childByAppendingPath("Starter").setValue(user_info.getName)
+        let user_ref = new_event.childByAppendingPath("Guests").childByAppendingPath(user_info.getUID)
+        user_ref.childByAppendingPath("Arrival Time").setValue(self.arrival_time)
+        user_ref.childByAppendingPath("Name").setValue(user_info.getName)
+        */
+        
+        let event:Dictionary<String, AnyObject> = ["Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName]]]
+        dataService.createNewEvent(event)
     }
 }

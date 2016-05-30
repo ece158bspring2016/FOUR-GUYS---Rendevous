@@ -9,9 +9,10 @@
 import Foundation
 import Firebase
 
+let dataService = DataService()
+
 class DataService {
-    static let dataService = DataService()
-    
+
     static let BASE_URL = "https://rend-ezvous.firebaseio.com/"
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")
@@ -21,6 +22,8 @@ class DataService {
     
     var currentEventID = ""
     var destination = ""
+    var currentUserName = ""
+    var currentUserUID = ""
 
     
     private var CURRENT_EVENT_URL = ""
@@ -36,6 +39,23 @@ class DataService {
         return _EVENT_REF
     }
     
+    var CURRENT_USER_EVENTS_REF: Firebase {
+        
+        let currentUserEvents = Firebase(url: "\(BASE_REF)").childByAppendingPath("USERS").childByAppendingPath(CURRENT_USER_UID).childByAppendingPath("EVENTS")
+        
+        return currentUserEvents!
+    }
+    
+    var CURRENT_USER_NAME: String {
+        get {
+            return currentUserName
+        }
+        set (currUser) {
+            self.currentUserName = currUser
+        }
+    }
+
+    
     // Get current user
     var CURRENT_USER_REF: Firebase {
         let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
@@ -44,6 +64,16 @@ class DataService {
         
         return currentUser!
     }
+    
+    var CURRENT_USER_UID: String {
+        get {
+            return currentUserUID
+        }
+        set (currUserUID) {
+            self.currentUserUID = currUserUID
+        }
+    }
+
     
     // Get/set destination when creating an event
     var DESTINATION: String {
@@ -75,6 +105,10 @@ class DataService {
         
         // Save event to firebase
         firebaseNewEvent.setValue(event)
+        
+        // Append event to user profile on Firebase
+        self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue("")
+
     }
     
 }

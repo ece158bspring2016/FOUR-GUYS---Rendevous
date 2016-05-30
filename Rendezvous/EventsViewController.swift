@@ -12,7 +12,7 @@ import Firebase
 class EventsViewController: UITableViewController {
     
     // Define events array
-    var events:[Event] = []
+    var events:[String] = []
     
     
     override func viewDidLoad() {
@@ -25,10 +25,43 @@ class EventsViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Reference to events tree
-        DataService.dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
-            
-            // The snapshot into the events data
-            print(snapshot.value)
+//        dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
+//            
+//            // The snapshot into the events data
+//            print(snapshot.value)
+//            
+//            self.events = []
+//            
+//            // Access database to populate events array
+//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+//                
+//                for snap in snapshots {
+//                    
+//                    if let eventDictionary = snap.value as? Dictionary<String, AnyObject> {
+//                        let key = snap.key
+//                        let evented = Event(key: key, dictionary: eventDictionary)
+//                        
+//                        print("KEY and Dictionary")
+//                        print(key)
+//                
+//                        /* Debug */
+//                        for (key, value) in eventDictionary {
+//                            print("\(key) -> \(value)")
+//                        }
+//
+//                
+//                        // Insert event into events array
+//                        self.events.insert(evented, atIndex:0)
+//                
+//                        }
+//                    }
+//                }
+//            
+//            // Update data on cell
+//            self.tableView.reloadData()
+//        })
+        
+        dataService.CURRENT_USER_EVENTS_REF.observeEventType(.Value, withBlock: { snapshot in
             
             self.events = []
             
@@ -37,29 +70,16 @@ class EventsViewController: UITableViewController {
                 
                 for snap in snapshots {
                     
-                    if let eventDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let evented = Event(key: key, dictionary: eventDictionary)
-                        
-                        print("KEY and Dictionary")
-                        print(key)
-                
-                        /* Debug */
-                        for (key, value) in eventDictionary {
-                            print("\(key) -> \(value)")
-                        }
-
-                
-                        // Insert event into events array
-                        self.events.insert(evented, atIndex:0)
-                
-                        }
-                    }
+                    // Insert event into events array
+                    self.events.insert(snap.key, atIndex:0)
+                    
                 }
-            
-            // Update data on cell
-            self.tableView.reloadData()
+                
+                // Update data on cell
+                self.tableView.reloadData()
+            }
         })
+
 
     }
 

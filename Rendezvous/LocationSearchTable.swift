@@ -69,7 +69,7 @@ extension LocationSearchTable {
         cell.detailTextLabel?.text = parseAddress(selectedItem)
         
         // Save destination for firebase
-        DataService.dataService.DESTINATION = selectedItem.name!
+        dataService.DESTINATION = selectedItem.name!
         
         return cell
     }
