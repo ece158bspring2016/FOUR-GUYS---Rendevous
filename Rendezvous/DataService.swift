@@ -16,14 +16,14 @@ class DataService {
     static let BASE_URL = "https://rend-ezvous.firebaseio.com/"
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")
-    //private var _CURRENT_EVENT_REF = Firebase(url: "\(BASE_URL)/EVENTS/")
-    //private var _CURRENT_EVENT_REF = Firebase(url: CURRENT_EVENT_URL)
 
     
     var currentEventID = ""
     var destination = ""
     var currentUserName = ""
     var currentUserUID = ""
+    var currentEventName = ""
+    var eventStorage:[String] = []
 
     
     private var CURRENT_EVENT_URL = ""
@@ -107,7 +107,7 @@ class DataService {
         firebaseNewEvent.setValue(event)
         
         // Append event to user profile on Firebase
-        self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue("")
+        self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue(currentEventID)
 
     }
     

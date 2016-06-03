@@ -32,7 +32,7 @@ class Event {
     }
     
     var senderName: String {
-        return sender
+        return sender!
     }
     
     // Initialize a new event
@@ -43,11 +43,11 @@ class Event {
         print(key)
         print("END KEY:::::::::::::::::::::::")
         
-        if let event = dictionary["EventName"] as? String {
+        if let event = dictionary["Destination"] as? String {
             self.event_name = event
         }
         
-        if let eventStarter = dictionary["Sender"] as? String {
+        if let eventStarter = dictionary["Starter"] as? String {
             self.sender = eventStarter
         }
 
@@ -62,19 +62,8 @@ class Event {
     }
     
     func startEvent() {
-        /*
-        let event_ref = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS")
-        let new_event = event_ref.childByAutoId()
-        
-        new_event.childByAppendingPath("Destination").setValue(self.destination)
-        
-        new_event.childByAppendingPath("Starter").setValue(user_info.getName)
-        let user_ref = new_event.childByAppendingPath("Guests").childByAppendingPath(user_info.getUID)
-        user_ref.childByAppendingPath("Arrival Time").setValue(self.arrival_time)
-        user_ref.childByAppendingPath("Name").setValue(user_info.getName)
-        */
-        
         let event:Dictionary<String, AnyObject> = ["Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName]]]
         dataService.createNewEvent(event)
     }
+        
 }

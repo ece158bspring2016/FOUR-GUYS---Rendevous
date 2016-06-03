@@ -38,20 +38,6 @@ class AddMemberViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddMember" {
             member = Member(name: email_textfield.text!, eta: "Pending")
-            
-//            let newEvent: Dictionary<String, AnyObject> = [
-//                "EventName": dataService.DESTINATION,
-//                "Sender"   : currentUser,
-//                "Guests"   : ""
-//            ]
-//            
-//            // Call to save to firebase
-//            dataService.createNewEvent(newEvent)
-//            
-//            print("event path is ")
-            //print(DataService.dataService.CURRENT_EVENT_REF)
-
-            
         }
         print(segue.identifier)
     }    

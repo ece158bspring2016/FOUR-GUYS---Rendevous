@@ -42,7 +42,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 
                 
                 let number = self.phoneNumberField.text!
-                //let name = ["Name" : self.nameField.text!, "PhoneNumber": number]
                 
                 let userInfo = ["Name" : self.nameField.text!, "PhoneNumber": number]
                 
@@ -54,10 +53,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 // Save UID
                 dataService.CURRENT_USER_UID = uid!
                 
-                
-                //let user = ["username" : self.usernameField.text!]
-                //self.ref.childByAppendingPath("USERS/\(uid)").setValue(name)
-                //self.ref.childByAppendingPath("USERS/\(uid)").setValue(number)
                 
                 self.performSegueWithIdentifier("segueToMap", sender: nil)
             }
