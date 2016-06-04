@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class AddMemberViewController: UITableViewController {
     var member:Member?
     
     @IBOutlet weak var email_textfield: UITextField!
     var currentUser = ""
+    var inviteeUID = ""
+    var eventUID = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +42,32 @@ class AddMemberViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddMember" {
             member = Member(name: email_textfield.text!, eta: "Pending")
+            
+            self.eventUID = dataService.selectedEvent
+            
+            // Look for user with entered phone number
+            dataService.USERS_REF.queryOrderedByChild("PhoneNumber").queryEqualToValue(member!.name).observeEventType(.ChildAdded, withBlock: { snapshot in
+                
+                self.inviteeUID = snapshot.key
+                self.eventUID = dataService.CURRENT_SELECTED_EVENT_UID
+                
+                // Add event to invitee's guest list
+                dataService.BASE_REF.childByAppendingPath("USERS/\(self.inviteeUID)/EVENTS/\(self.eventUID)").setValue(self.eventUID)
+                
+                // Add invitee to event's guest list
+                dataService.USERS_REF.queryOrderedByKey().queryEqualToValue(self.inviteeUID).observeEventType(.ChildAdded, withBlock: { snapshot2 in
+                    
+                    let name = snapshot2.value["Name"] as? String
+                    
+                    let invitedGuest = ["Arrival Time": "Pending", "Name": name!]
+                    
+                    // Append invitee to the event's guest list on Firebase
+                    dataService.BASE_REF.childByAppendingPath("EVENTS/\(self.eventUID)/Guests/\(self.inviteeUID)").setValue(invitedGuest)
+
+                })
+            })
         }
         print(segue.identifier)
-    }    
+    }
+    
 }

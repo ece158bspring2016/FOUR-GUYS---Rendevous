@@ -13,7 +13,7 @@ class EventsViewController: UITableViewController {
     
     // Define events array
     var events:[Event] = []
-    //var currentEventName = ""
+    var selectedEventUID = ""
     
     
     override func viewDidLoad() {
@@ -51,7 +51,6 @@ class EventsViewController: UITableViewController {
                 }
             }
         })
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,15 +129,25 @@ class EventsViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            // Get event selected
+            //selectedEventUID = events[indexPath.row].eventKey
+            dataService.CURRENT_SELECTED_EVENT_UID = events[indexPath.row].eventKey
+        
+    }
 
-    /*
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
     }
-    */
+    
 
 }

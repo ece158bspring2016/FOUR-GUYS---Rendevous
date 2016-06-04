@@ -24,6 +24,8 @@ class Event {
     private var destination: String!
     private var arrival_time: String!
     
+    private var selectedEvent: String!
+    
     var eventKey: String {
         return _eventKey
     }
@@ -35,6 +37,7 @@ class Event {
     var senderName: String {
         return sender!
     }
+        
     
     // Initialize a new event
     init(key: String, dictionary: Dictionary<String, AnyObject>) {
