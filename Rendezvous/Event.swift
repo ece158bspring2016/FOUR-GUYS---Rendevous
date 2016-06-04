@@ -19,6 +19,7 @@ class Event {
     
     private var event_name: String!
     private var sender: String!
+    private var eventAddress: String!
     
     private var destination: String!
     private var arrival_time: String!
@@ -39,10 +40,6 @@ class Event {
     init(key: String, dictionary: Dictionary<String, AnyObject>) {
         self._eventKey = key
         
-        print("THE KEY IS::::::::::::::::::::")
-        print(key)
-        print("END KEY:::::::::::::::::::::::")
-        
         if let event = dictionary["Destination"] as? String {
             self.event_name = event
         }
@@ -50,19 +47,20 @@ class Event {
         if let eventStarter = dictionary["Starter"] as? String {
             self.sender = eventStarter
         }
-
+        
         // Assign above properties to their key
         self._baseRef = dataService.EVENT_REF.childByAppendingPath(self._eventKey)
 
     }
     
-    init(destination: String, arrival_time: String) {
+    init(destination: String, arrival_time: String, address: String) {
         self.destination = destination
         self.arrival_time = arrival_time
+        self.eventAddress = address
     }
     
     func startEvent() {
-        let event:Dictionary<String, AnyObject> = ["Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName]]]
+        let event:Dictionary<String, AnyObject> = ["Address": self.eventAddress, "Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName]]]
         dataService.createNewEvent(event)
     }
         

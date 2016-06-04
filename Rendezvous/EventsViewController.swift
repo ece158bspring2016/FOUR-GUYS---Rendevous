@@ -52,8 +52,6 @@ class EventsViewController: UITableViewController {
             }
         })
 
-
-
     }
 
     override func didReceiveMemoryWarning() {

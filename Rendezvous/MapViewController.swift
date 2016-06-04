@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import Firebase
+import AddressBook
+
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
@@ -139,9 +141,15 @@ extension MapViewController : MKMapViewDelegate {
             nf.numberStyle = NSNumberFormatterStyle.DecimalStyle
             nf.maximumFractionDigits = 0
             
-            let address: String = (request.destination?.name)!
+            let destination: String = (request.destination?.name)!
             
-            self.address_label.text = address
+            // Extract and build destination address
+            let address1 = (self.selectedPin?.subThoroughfare)! + " " + (self.selectedPin?.thoroughfare)! + ", " + (self.selectedPin?.locality)! + ", "
+            let address2 = (self.selectedPin?.administrativeArea)! + " " + (self.selectedPin?.postalCode)!
+            let address = address1 + address2
+            
+            
+            self.address_label.text = destination
             
             // Calculate ETA
             let current_route = response!.routes[0]
@@ -219,7 +227,7 @@ extension MapViewController : MKMapViewDelegate {
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
             
-            cur_event = Event.init(destination: address, arrival_time: arrival_time)
+            cur_event = Event.init(destination: destination, arrival_time: arrival_time, address: address)
         }
         
         return pinView
