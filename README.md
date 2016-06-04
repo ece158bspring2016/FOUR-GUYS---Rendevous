@@ -1,4 +1,3 @@
 # Four Guys Rendezvous
-Simple app to get experience with MapKit and core location
+Simple app using MapKit and core location to help friends share their arrival times to a hangout spot.
 
-Completed under the tutorial "Routing with MapKit and Core Location" written by Lyndsey Scott 
