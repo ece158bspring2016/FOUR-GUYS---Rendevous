@@ -146,8 +146,9 @@ extension MapViewController : MKMapViewDelegate {
             let address1 = (self.selectedPin?.subThoroughfare)! + " " + (self.selectedPin?.thoroughfare)! + ", " + (self.selectedPin?.locality)! + ", "
             let address2 = (self.selectedPin?.administrativeArea)! + " " + (self.selectedPin?.postalCode)!
             let address = address1 + address2
-            
-            
+
+            dataService.currentEventName = destination
+
             self.address_label.text = destination
             
             // Calculate ETA

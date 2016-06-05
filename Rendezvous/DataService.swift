@@ -57,6 +57,15 @@ class DataService {
         }
     }
 
+    var CURRENT_EVENT_NAME: String {
+        get {
+            return currentEventName
+        }
+        set (currentEventName) {
+            self.currentEventName = currentEventName
+        }
+    }
+
     var CURRENT_USER_EVENTS_REF: Firebase {
         
         let currentUserEvents = Firebase(url: "\(BASE_REF)").childByAppendingPath("USERS").childByAppendingPath(CURRENT_USER_UID).childByAppendingPath("EVENTS")

@@ -116,8 +116,6 @@ class SecondMapViewController : UIViewController {
             guard let response = response else {
                 return
             }
-            print(response.mapItems[0])
-            
             self.dropPinZoomIn(response.mapItems[0].placemark)
         }
 
@@ -205,7 +203,6 @@ extension SecondMapViewController : MKMapViewDelegate {
             let address1 = (self.selectedPin?.subThoroughfare)! + " " + (self.selectedPin?.thoroughfare)! + ", " + (self.selectedPin?.locality)! + ", "
             let address2 = (self.selectedPin?.administrativeArea)! + " " + (self.selectedPin?.postalCode)!
             let address = address1 + address2
-            
             
             self.address_label.text = dataService.currentEventName
             
