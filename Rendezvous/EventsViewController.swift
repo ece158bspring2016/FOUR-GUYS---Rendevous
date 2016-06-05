@@ -163,5 +163,17 @@ class EventsViewController: UITableViewController {
         
     }
     
+    
+    @IBAction func cancelToEventsViewController(segue:UIStoryboardSegue) {
+        // Delete event from user's event list (Firebase)
+        let userRef = Firebase(url: "https://rend-ezvous.firebaseio.com/USERS/\(dataService.CURRENT_USER_UID)/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)")
+        userRef.removeValue()
+        
+        // Delete user from event's guest list (Firebase)
+        let eventRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)")
+        
+        eventRef.removeValue()
+    }
+    
 
 }
