@@ -237,6 +237,9 @@
                                 <state key="normal" title="DECLINE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="B7i-Df-Ibf" kind="unwind" unwindAction="cancelToEventsViewController:" id="Tef-AB-GUo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEt-W9-ej0">
                                 <rect key="frame" x="20" y="562" width="452" height="18"/>
@@ -292,6 +295,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sK-fR-rkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="B7i-Df-Ibf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3370" y="-467"/>
         </scene>
