@@ -648,7 +648,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-v1-3IE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-v1-3IE">
                                             <rect key="frame" x="8" y="50" width="600" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="qDp-uW-Z57"/>
@@ -657,44 +657,19 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwt-aj-6Ks">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwt-aj-6Ks">
                                             <rect key="frame" x="8" y="16" width="600" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiZ-py-gJ1">
-                                            <rect key="frame" x="452" y="8" width="140" height="25"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="140" id="MsG-8a-qrA"/>
-                                            </constraints>
-                                            <state key="normal" title="Accept">
-                                                <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xs6-Ca-6jx">
-                                            <rect key="frame" x="452" y="46" width="140" height="25"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="Decline">
-                                                <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </state>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aiZ-py-gJ1" firstAttribute="top" secondItem="q8u-tp-2u6" secondAttribute="topMargin" id="60a-M3-Ls0"/>
-                                        <constraint firstItem="Xs6-Ca-6jx" firstAttribute="top" secondItem="bwt-aj-6Ks" secondAttribute="bottom" constant="9" id="6QN-wV-Hr8"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Xs6-Ca-6jx" secondAttribute="bottom" constant="5.5" id="I1i-mY-hsi"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="leading" secondItem="q8u-tp-2u6" secondAttribute="leadingMargin" id="KEf-Gg-R1Q"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="leading" secondItem="fQJ-v1-3IE" secondAttribute="leading" id="KiA-m6-bZb"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bwt-aj-6Ks" secondAttribute="trailing" constant="-16" id="M8f-bQ-G7W"/>
-                                        <constraint firstItem="aiZ-py-gJ1" firstAttribute="trailing" secondItem="Xs6-Ca-6jx" secondAttribute="trailing" id="RNy-lh-7gG"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="trailing" secondItem="fQJ-v1-3IE" secondAttribute="trailing" id="UIq-d3-S0T"/>
-                                        <constraint firstItem="aiZ-py-gJ1" firstAttribute="trailing" secondItem="q8u-tp-2u6" secondAttribute="trailingMargin" id="VcF-CG-O7m"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="top" secondItem="q8u-tp-2u6" secondAttribute="topMargin" constant="8" id="avc-Vc-7Hm"/>
-                                        <constraint firstItem="fQJ-v1-3IE" firstAttribute="centerY" secondItem="Xs6-Ca-6jx" secondAttribute="centerY" id="dmG-c8-Ytg"/>
-                                        <constraint firstItem="aiZ-py-gJ1" firstAttribute="leading" secondItem="Xs6-Ca-6jx" secondAttribute="leading" id="gaX-4N-R9h"/>
                                         <constraint firstItem="fQJ-v1-3IE" firstAttribute="top" secondItem="bwt-aj-6Ks" secondAttribute="bottom" constant="13" id="hsC-ne-meB"/>
-                                        <constraint firstItem="Xs6-Ca-6jx" firstAttribute="top" secondItem="aiZ-py-gJ1" secondAttribute="bottom" constant="13" id="jvJ-rd-rrs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
