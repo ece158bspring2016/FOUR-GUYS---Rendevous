@@ -11,6 +11,9 @@ import MapKit
 
 class LocationSearchTable : UITableViewController {
     var handleMapSearchDelegate:HandleMapSearch? = nil
+    
+   //var handleMapSearch2Delegate:HandleMapSearch2? = nil
+    
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     
@@ -79,6 +82,7 @@ extension LocationSearchTable {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

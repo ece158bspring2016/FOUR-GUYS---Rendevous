@@ -24,6 +24,7 @@
 		8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528CDD01CE691D3003794D5 /* SignInViewController.swift */; };
 		859671231CE7CC9F003644F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859671221CE7CC9E003644F3 /* Main.storyboard */; };
 		85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */; };
+		AB1D29D71D035E85005C665F /* SecondMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D29D61D035E85005C665F /* SecondMapViewController.swift */; };
 		EC03D6661CF509180026ECF2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC03D6651CF509180026ECF2 /* DataService.swift */; };
 		EC784C351CF512CB001634C8 /* EventCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */; };
 		EC9C62671CEAAADF00DE00A4 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */; };
@@ -50,6 +51,7 @@
 		8528CDD01CE691D3003794D5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		859671221CE7CC9E003644F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		AB1D29D61D035E85005C665F /* SecondMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondMapViewController.swift; sourceTree = "<group>"; };
 		EC03D6651CF509180026ECF2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellTableViewCell.swift; sourceTree = "<group>"; };
 		EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */,
 				673D3DA41CEC584F004DA86D /* LocationSearchTable.swift */,
 				859671221CE7CC9E003644F3 /* Main.storyboard */,
+				AB1D29D61D035E85005C665F /* SecondMapViewController.swift */,
 				67C7DEB21CEBE66B0094C22F /* MapViewController.swift */,
 				676017D11CE7DAF6002784CC /* Member.swift */,
 				676017D21CE7DAF6002784CC /* MemberCell.swift */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */,
+				AB1D29D71D035E85005C665F /* SecondMapViewController.swift in Sources */,
 				EC03D6661CF509180026ECF2 /* DataService.swift in Sources */,
 				67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */,
 				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,

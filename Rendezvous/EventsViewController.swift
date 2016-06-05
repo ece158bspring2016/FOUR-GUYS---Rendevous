@@ -40,7 +40,6 @@ class EventsViewController: UITableViewController {
                         if let postDictionary = snapshot2.value as? Dictionary<String, AnyObject> {
                             let key = snapshot2.key
                             let eventToInsert = Event(key: key, dictionary: postDictionary)
-
                             self.events.insert(eventToInsert, atIndex:0)
                         }
                         
@@ -134,7 +133,8 @@ class EventsViewController: UITableViewController {
             // Get event selected
             //selectedEventUID = events[indexPath.row].eventKey
             dataService.CURRENT_SELECTED_EVENT_UID = events[indexPath.row].eventKey
-        
+            dataService.DESTINATION = events[indexPath.row].eventAddress
+            dataService.currentEventName = events[indexPath.row].eventName
     }
 
 

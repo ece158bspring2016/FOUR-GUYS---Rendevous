@@ -1,76 +1,135 @@
 //
-//  MapViewController.swift
+//  SecondMapViewController.swift
 //  Rendezvous
 //
-//  Created by John Law on 17/5/2016.
+//  Created by Anh Mai on 6/4/16.
 //  Copyright © 2016 FOUR GUYS. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import Firebase
-import AddressBook
+/*class SecondMapViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+ 
+        let locationManager = CLLocationManager()
+    
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestLocation()
+        }
 
-protocol HandleMapSearch {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+extension SecondMapViewController : CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("error:: \(error)")
+    }
+}*/
+/*protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}*/
+protocol HandleMapSearch2 {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
-class MapViewController : UIViewController {
-    
-    var selectedPin:MKPlacemark? = nil
+class SecondMapViewController : UIViewController {
+    var handleMapSearchDelegate:HandleMapSearch? = nil
 
-    var resultSearchController:UISearchController? = nil
+    var selectedPin:MKPlacemark? = nil
+    
+    //var resultSearchController:UISearchController? = nil
     
     let locationManager = CLLocationManager()
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var address_label: UILabel!
+    //@IBOutlet weak var mapView: MKMapView!
+    //@IBOutlet weak var address_label: UILabel!
     //@IBOutlet weak var departure_time_label: UILabel!
-    @IBOutlet weak var arrival_time_label: UILabel!
-    @IBOutlet weak var distance_label: UILabel!
-    @IBOutlet weak var eta_label: UILabel!
+    //@IBOutlet weak var arrival_time_label: UILabel!
+    //@IBOutlet weak var distance_label: UILabel!
+    //@IBOutlet weak var eta_label: UILabel!
+    //@IBOutlet weak var background_label: UILabel!
+    ///@IBOutlet weak var start_button: UIButton!
+    ///@IBOutlet weak var notifications_button: UIButton!
+    
     @IBOutlet weak var background_label: UILabel!
-    @IBOutlet weak var start_button: UIButton!
-    @IBOutlet weak var notifications_button: UIButton!
-
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distance_label: UILabel!
+    @IBOutlet weak var arrival_time_label: UILabel!
+    @IBOutlet weak var eta_label: UILabel!
+    @IBOutlet weak var address_label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+
         definesPresentationContext = true
-        locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
-        
+
+        /*
         address_label.text = nil
         arrival_time_label.text = nil
         distance_label.text = nil
         eta_label.text = nil
         background_label.backgroundColor = nil
-        start_button.hidden = true
+        */
+        //start_button.hidden = true
+        
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = dataService.DESTINATION
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        search.startWithCompletionHandler { response, _ in
+            guard let response = response else {
+                return
+            }
+            print(response.mapItems[0])
+            
+            self.dropPinZoomIn(response.mapItems[0].placemark)
+        }
+
         
     }
     
     @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
     }
-
-    @IBAction func startEvent() {
-        cur_event.startEvent()
-    }
+    
 }
 
-extension MapViewController : CLLocationManagerDelegate {
+extension SecondMapViewController : CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.requestLocation()
@@ -90,7 +149,7 @@ extension MapViewController : CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: HandleMapSearch {
+extension SecondMapViewController: HandleMapSearch2 {
     func dropPinZoomIn(placemark:MKPlacemark){
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)
@@ -108,7 +167,7 @@ extension MapViewController: HandleMapSearch {
     }
 }
 
-extension MapViewController : MKMapViewDelegate {
+extension SecondMapViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
             return nil
@@ -131,7 +190,7 @@ extension MapViewController : MKMapViewDelegate {
         
         directions.calculateDirectionsWithCompletionHandler { response, error -> Void in
             if let err = error {
-
+                
                 print(err.userInfo["NSLocalizedFailureReason"])
                 return
             }
@@ -148,7 +207,7 @@ extension MapViewController : MKMapViewDelegate {
             let address = address1 + address2
             
             
-            self.address_label.text = destination
+            self.address_label.text = dataService.currentEventName
             
             // Calculate ETA
             let current_route = response!.routes[0]
@@ -178,15 +237,15 @@ extension MapViewController : MKMapViewDelegate {
                 expected_time_string = expected_time_string.stringByAppendingString("\(min) min ")
             }
             /*let ahours = components.hour + hours
-            let aminutes = components.minute + min
-            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahours)hr")
-            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(aminutes)min")
-            */
+             let aminutes = components.minute + min
+             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahours)hr")
+             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(aminutes)min")
+             */
             let calendar = NSCalendar.currentCalendar()
             let adate = NSDate()
             let components = calendar.components([ .Hour, .Minute, .Second, .Day, .Month, .Year], fromDate: adate)
             
-
+            
             var ahour : Int  = components.hour + hours
             var aminutes : Int = components.minute + min
             let amonth : Int = components.month
@@ -203,7 +262,7 @@ extension MapViewController : MKMapViewDelegate {
                 
                 aday = aday + 1
             }
-
+            
             let arrival_time: String!
             if (ahour > 12){
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
@@ -213,7 +272,7 @@ extension MapViewController : MKMapViewDelegate {
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
                 arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
             }
-
+            
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
             self.eta_label.text = expected_time_string
@@ -221,8 +280,8 @@ extension MapViewController : MKMapViewDelegate {
             
             self.arrival_time_label.text = expectedArrivalDate_string
             self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile(s)"
-            self.start_button.hidden = false
-
+       //     self.start_button.hidden = false
+            
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
             

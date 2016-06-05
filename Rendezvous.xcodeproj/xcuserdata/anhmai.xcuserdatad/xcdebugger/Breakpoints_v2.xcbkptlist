@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rendezvous/LocationSearchTable.swift"
+            timestampString = "486762709.316911"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "LocationSearchTable"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rendezvous.LocationSearchTable.matchingItems.getter : Swift.Array&lt;__ObjC.MKMapItem&gt;"
+                  moduleName = "Rendezvous"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhmai/Downloads/FOUR-GUYS-Rendezvous-master%206/Rendezvous/LocationSearchTable.swift"
+                  timestampString = "486762710.254608"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rendezvous.LocationSearchTable.matchingItems.setter : Swift.Array&lt;__ObjC.MKMapItem&gt;"
+                  moduleName = "Rendezvous"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhmai/Downloads/FOUR-GUYS-Rendezvous-master%206/Rendezvous/LocationSearchTable.swift"
+                  timestampString = "486762710.256034"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rendezvous.LocationSearchTable.init (style : __C.UITableViewStyle) -&gt; Rendezvous.LocationSearchTable"
+                  moduleName = "Rendezvous"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhmai/Downloads/FOUR-GUYS-Rendezvous-master%206/Rendezvous/LocationSearchTable.swift"
+                  timestampString = "486762710.256153"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "235">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rendezvous.LocationSearchTable.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Rendezvous.LocationSearchTable"
+                  moduleName = "Rendezvous"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhmai/Downloads/FOUR-GUYS-Rendezvous-master%206/Rendezvous/LocationSearchTable.swift"
+                  timestampString = "486762710.256233"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "329">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rendezvous.LocationSearchTable.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Rendezvous.LocationSearchTable&gt;"
+                  moduleName = "Rendezvous"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhmai/Downloads/FOUR-GUYS-Rendezvous-master%206/Rendezvous/LocationSearchTable.swift"
+                  timestampString = "486762710.256323"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "235">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
