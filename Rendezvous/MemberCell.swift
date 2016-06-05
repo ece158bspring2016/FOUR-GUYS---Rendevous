@@ -19,6 +19,15 @@ class MemberCell: UITableViewCell {
             eta_label.text = member.eta
         }
     }
+    
+    func configureCell(member: Member) {
+        self.member = member
+        
+        // Set the labels
+        self.title_label.text = member.name!
+        self.eta_label.text = member.eta!
+    }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -56,6 +56,13 @@ class DataService {
             self.selectedEvent = currentSelected
         }
     }
+    
+    var CURRENT_SELECTED_EVENT_GUESTS_REF: Firebase {
+        
+        let currentUserEvents = Firebase(url: "\(BASE_REF)").childByAppendingPath("EVENTS").childByAppendingPath(CURRENT_SELECTED_EVENT_UID).childByAppendingPath("Guests")
+        
+        return currentUserEvents!
+    }
 
     var CURRENT_EVENT_NAME: String {
         get {

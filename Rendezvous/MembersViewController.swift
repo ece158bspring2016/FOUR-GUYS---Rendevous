@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class MembersViewController: UITableViewController {
-    var members:[Member] = member_data
+    //var members:[Member] = member_data
+    var members:[Member] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,29 @@ class MembersViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        dataService.CURRENT_SELECTED_EVENT_GUESTS_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            self.members = []
+            
+            // Snapshot of user's events
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snapshots {
+                    
+                    let name = snap.value["Name"] as? String
+                    let arrivalTime = snap.value["Arrival Time"] as? String
+                    var guestToInsert = Member(name: name!, eta: arrivalTime!)
+                    
+                    self.members.insert(guestToInsert, atIndex: self.members.count)
+                    
+                }
+            }
+            // Update data on cell
+            self.tableView.reloadData()
+            
+        })
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,14 +64,24 @@ class MembersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemberCell", forIndexPath: indexPath) as! MemberCell
-
-        // Configure the cell...
         
-        let member = members[indexPath.row] as Member
-        cell.member = member
-
-        return cell
+        // A single member
+        let member = members[indexPath.row]
+        
+        // Configure the cell...
+        if let cell = tableView.dequeueReusableCellWithIdentifier("MemberCell") as? MemberCell {
+            
+            // Send the single event to configureCell() in EventCellTableViewCell.
+            cell.configureCell(member)
+            
+            return cell
+            
+        } else {
+            
+            return MemberCell()
+            
+        }
+        
     }
 
     /*
@@ -98,17 +133,17 @@ class MembersViewController: UITableViewController {
     }
     
     @IBAction func addMember(segue:UIStoryboardSegue) {
-        if let addMemberViewController = segue.sourceViewController as? AddMemberViewController {
-            
-            //add the new book to the books array
-            if let member = addMemberViewController.member {
-                members.append(member)
-                
-                //update the tableView
-                let indexPath = NSIndexPath(forRow: members.count-1, inSection: 0)
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            }
-        }
+//        if let addMemberViewController = segue.sourceViewController as? AddMemberViewController {
+//            
+//            //add the new book to the books array
+//            if let member = addMemberViewController.member {
+//                members.append(member)
+//                
+//                //update the tableView
+//                let indexPath = NSIndexPath(forRow: members.count-1, inSection: 0)
+//                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//            }
+//        }
     }
 
 
