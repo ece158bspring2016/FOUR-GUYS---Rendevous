@@ -140,6 +140,8 @@ class SecondMapViewController : UIViewController {
         
         // Update event status
         eventStatusRef.setValue("Accepted")
+        
+        //self.performSegueWithIdentifier("inProgressSegue", sender: nil)
 
     }
     

@@ -13,6 +13,7 @@ class EventCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var eventName: UILabel!
     @IBOutlet weak var senderName: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     var event: Event!
     var eventRef: Firebase!
@@ -23,6 +24,8 @@ class EventCellTableViewCell: UITableViewCell {
         // Set the labels
         self.eventName.text = event.eventName
         self.senderName.text = event.senderName
+        self.statusLabel.text = event.eventStatus
+        
     }
 
     override func awakeFromNib() {

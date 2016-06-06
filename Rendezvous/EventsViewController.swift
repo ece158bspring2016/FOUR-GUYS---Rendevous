@@ -39,16 +39,22 @@ class EventsViewController: UITableViewController {
                 
                 for snap in snapshots {
                     
+                    print(snap.value)
+                    
                     //  Get full event data (destination, starter for this scene)
                     dataService.EVENT_REF.queryOrderedByKey().queryEqualToValue(snap.key).observeEventType(.ChildAdded, withBlock: { snapshot2 in
                         if let postDictionary = snapshot2.value as? Dictionary<String, AnyObject> {
                             let key = snapshot2.key
                             let eventToInsert = Event(key: key, dictionary: postDictionary)
+                            //print(snap.key)
+                            //print(snap.value)
+                            eventToInsert.eventStatus = snap.value as! String
                             self.events.insert(eventToInsert, atIndex:0)
                         }
                         
                         //Event.eventsArray = events
-                        //dataService.eventStorage = self.events
+                        // Save array contents for outside access
+                        dataService.eventStorage = self.events
                         
                         // Update data on cell
                         self.tableView.reloadData()
@@ -156,6 +162,15 @@ class EventsViewController: UITableViewController {
             dataService.CURRENT_SELECTED_EVENT_UID = events[indexPath.row].eventKey
             dataService.DESTINATION = events[indexPath.row].eventAddress
             dataService.currentEventName = events[indexPath.row].eventName
+        
+        if events[indexPath.row].eventStatus == "Accepted" {
+            print("YOU HAVE ALREADY ACCEPTED")
+            self.performSegueWithIdentifier("inProgressSegue", sender: nil)
+        }
+        else {
+            print("Go to 2nd Map")
+            self.performSegueWithIdentifier("mapView", sender: nil)
+        }
     }
 
 
@@ -166,6 +181,9 @@ class EventsViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        if events[indexPath.row].eventKey {
+//            
+//        }
         
         
     }

@@ -25,6 +25,7 @@ class Event {
     private var arrival_time: String!
     
     private var selectedEvent: String!
+    private var event_Status: String!
     
     var eventsList:[Event] = []
     
@@ -44,6 +45,16 @@ class Event {
         return event_address
     }
     
+    var eventStatus: String {
+        get {
+            return self.event_Status
+        }
+        set(e_S) {
+            self.event_Status = e_S
+        }
+    }
+
+    
     var eventsArray: [Event] {
         get {
             return self.eventsList
@@ -58,6 +69,10 @@ class Event {
     init(key: String, dictionary: Dictionary<String, AnyObject>) {
         self._eventKey = key
         
+        print("DICTIONARY")
+        print(dictionary)
+        print("END DICTIONARY")
+        
         if let event = dictionary["Destination"] as? String {
             self.event_name = event
         }
@@ -69,6 +84,8 @@ class Event {
         if let address = dictionary["Address"] as? String {
             self.event_address = address
         }
+        
+        //if let status = dictionary[
 
         // Assign above properties to their key
         self._baseRef = dataService.EVENT_REF.childByAppendingPath(self._eventKey)

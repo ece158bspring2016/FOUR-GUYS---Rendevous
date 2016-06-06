@@ -63,6 +63,13 @@ class AddMemberViewController: UITableViewController {
                     
                     // Append invitee to the event's guest list on Firebase
                     dataService.BASE_REF.childByAppendingPath("EVENTS/\(self.eventUID)/Guests/\(self.inviteeUID)").setValue(invitedGuest)
+                    
+                    // Reference to event status for invited user
+                    let eventStatusRef = Firebase(url: "https://rend-ezvous.firebaseio.com/USERS/\(self.inviteeUID)/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)")
+                    
+                    // Update event status
+                    eventStatusRef.setValue("Pending")
+
 
                 })
             })

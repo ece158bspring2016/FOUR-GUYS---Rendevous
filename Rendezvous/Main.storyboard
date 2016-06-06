@@ -536,7 +536,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qU-Km-GKE" id="OjT-oB-dSJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gsG-TP-TkS">
@@ -606,10 +606,10 @@
                             <tableViewSection headerTitle="Phone Number" id="Bkd-V8-1gU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="VgF-V8-g3g">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VgF-V8-g3g" id="YGS-bG-3lG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hbx-ux-rJl">
@@ -699,7 +699,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I7c-Rh-vWq" id="q8u-tp-2u6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-v1-3IE">
@@ -716,20 +716,29 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD3-5y-kfE">
+                                            <rect key="frame" x="507" y="32" width="85" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="JD3-5y-kfE" firstAttribute="top" secondItem="q8u-tp-2u6" secondAttribute="top" constant="32" id="0fR-aG-4sm"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="leading" secondItem="q8u-tp-2u6" secondAttribute="leadingMargin" id="KEf-Gg-R1Q"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="leading" secondItem="fQJ-v1-3IE" secondAttribute="leading" id="KiA-m6-bZb"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bwt-aj-6Ks" secondAttribute="trailing" constant="-16" id="M8f-bQ-G7W"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="trailing" secondItem="fQJ-v1-3IE" secondAttribute="trailing" id="UIq-d3-S0T"/>
+                                        <constraint firstAttribute="bottom" secondItem="JD3-5y-kfE" secondAttribute="bottom" constant="32" id="Ulc-wD-PBi"/>
                                         <constraint firstItem="bwt-aj-6Ks" firstAttribute="top" secondItem="q8u-tp-2u6" secondAttribute="topMargin" constant="8" id="avc-Vc-7Hm"/>
                                         <constraint firstItem="fQJ-v1-3IE" firstAttribute="top" secondItem="bwt-aj-6Ks" secondAttribute="bottom" constant="13" id="hsC-ne-meB"/>
+                                        <constraint firstAttribute="trailing" secondItem="JD3-5y-kfE" secondAttribute="trailing" constant="8" id="kr2-va-p6a"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="eventName" destination="bwt-aj-6Ks" id="Bwi-PW-YYe"/>
                                     <outlet property="senderName" destination="fQJ-v1-3IE" id="jGJ-Mn-vBl"/>
-                                    <segue destination="4UD-Qf-P3l" kind="show" id="WFq-sK-9AP"/>
+                                    <outlet property="statusLabel" destination="JD3-5y-kfE" id="Vdd-9r-NNa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -738,6 +747,10 @@
                             <outlet property="delegate" destination="Mjl-du-8nl" id="t7f-Ly-iPg"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="5rT-40-REJ" kind="show" identifier="inProgressSegue" id="4N6-Be-ef0"/>
+                        <segue destination="4UD-Qf-P3l" kind="show" identifier="mapView" id="Hca-JL-oLv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6Q-kO-sPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -838,7 +851,7 @@
         <image name="Notification" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4kf-E4-bm1"/>
-        <segue reference="368-BT-LVA"/>
+        <segue reference="4N6-Be-ef0"/>
+        <segue reference="bcE-Fz-1k9"/>
     </inferredMetricsTieBreakers>
 </document>
