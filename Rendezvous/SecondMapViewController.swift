@@ -127,11 +127,12 @@ class SecondMapViewController : UIViewController {
     }
     
     @IBAction func acceptPressed(sender: UIButton) {
-        print("You pressed accept")
         print(sender.titleLabel?.text!)
         
         // Reference to arrival time field of current event
         let timeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Arrival Time")
+        
+        //print(EventsViewController.)
         
         // Update arrival time
         timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
@@ -286,7 +287,7 @@ extension SecondMapViewController : MKMapViewDelegate {
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
             // Save arrival time for current user
-            dataService.CURRENT_USER_ARRIVAL_TIME = expectedArrivalDate_string
+            dataService.CURRENT_USER_ARRIVAL_TIME = arrival_time
 
             
             self.eta_label.text = expected_time_string

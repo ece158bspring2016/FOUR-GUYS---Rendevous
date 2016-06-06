@@ -26,6 +26,8 @@ class Event {
     
     private var selectedEvent: String!
     
+    var eventsList:[Event] = []
+    
     var eventKey: String {
         return _eventKey
     }
@@ -41,6 +43,15 @@ class Event {
     var eventAddress: String {
         return event_address
     }
+    
+    var eventsArray: [Event] {
+        get {
+            return self.eventsList
+        }
+        set(e_A) {
+            self.eventsList = e_A
+        }
+    }
         
     
     // Initialize a new event
@@ -55,8 +66,8 @@ class Event {
             self.sender = eventStarter
         }
 
-        if let eventStarter = dictionary["Address"] as? String {
-            self.event_address = eventStarter
+        if let address = dictionary["Address"] as? String {
+            self.event_address = address
         }
 
         // Assign above properties to their key

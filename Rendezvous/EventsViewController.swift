@@ -9,12 +9,16 @@
 import UIKit
 import Firebase
 
+
 class EventsViewController: UITableViewController {
     
     // Define events array
     var events:[Event] = []
     var selectedEventUID = ""
     
+    func getEvents() -> [Event] {
+        return events
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,8 @@ class EventsViewController: UITableViewController {
                             let eventToInsert = Event(key: key, dictionary: postDictionary)
                             self.events.insert(eventToInsert, atIndex:0)
                         }
+                        
+                        //Event.eventsArray = events
                         
                         // Update data on cell
                         self.tableView.reloadData()
