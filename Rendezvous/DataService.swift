@@ -28,7 +28,7 @@ class DataService {
     var selectedEvent = ""
     var arrivalTime = ""
     
-    var eventStorage:[String] = []
+    var eventStorage:[Event] = []
 
     
     private var CURRENT_EVENT_URL = ""

@@ -132,10 +132,14 @@ class SecondMapViewController : UIViewController {
         // Reference to arrival time field of current event
         let timeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Arrival Time")
         
-        //print(EventsViewController.)
-        
+        // Reference to event status for current user
+        let eventStatusRef = Firebase(url: "https://rend-ezvous.firebaseio.com/USERS/\(dataService.CURRENT_USER_UID)/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)")
+                
         // Update arrival time
         timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
+        
+        // Update event status
+        eventStatusRef.setValue("Accepted")
 
     }
     

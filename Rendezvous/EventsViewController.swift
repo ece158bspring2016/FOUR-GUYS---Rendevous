@@ -48,6 +48,7 @@ class EventsViewController: UITableViewController {
                         }
                         
                         //Event.eventsArray = events
+                        //dataService.eventStorage = self.events
                         
                         // Update data on cell
                         self.tableView.reloadData()
