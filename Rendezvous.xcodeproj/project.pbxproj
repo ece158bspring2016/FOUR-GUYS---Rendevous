@@ -171,13 +171,17 @@
 		FC1E24701C2B10F5009E9908 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+					2,
+				);
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "FOUR GUYS";
 				TargetAttributes = {
 					FC1E24771C2B10F5009E9908 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = PNU7AS5372;
+						DevelopmentTeam = A3ZS4943BE;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;

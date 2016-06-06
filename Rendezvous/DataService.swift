@@ -26,6 +26,7 @@ class DataService {
     var currentUserUID = ""
     var currentEventName = ""
     var selectedEvent = ""
+    var arrivalTime = ""
     
     var eventStorage:[String] = []
 
@@ -72,6 +73,16 @@ class DataService {
             self.currentEventName = currentEventName
         }
     }
+    
+    var CURRENT_USER_ARRIVAL_TIME: String {
+        get {
+            return arrivalTime
+        }
+        set (current_User_Time) {
+            self.arrivalTime = current_User_Time
+        }
+    }
+
 
     var CURRENT_USER_EVENTS_REF: Firebase {
         
@@ -144,7 +155,7 @@ class DataService {
         dataService.CURRENT_SELECTED_EVENT_UID = currentEventID
         
         // Append event to user profile on Firebase
-        self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue(currentEventID)
+        self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue("Accepted")
 
     }
     

@@ -89,6 +89,7 @@ class SecondMapViewController : UIViewController {
     @IBOutlet weak var arrival_time_label: UILabel!
     @IBOutlet weak var eta_label: UILabel!
     @IBOutlet weak var address_label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -123,6 +124,18 @@ class SecondMapViewController : UIViewController {
     }
     
     @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func acceptPressed(sender: UIButton) {
+        print("You pressed accept")
+        print(sender.titleLabel?.text!)
+        
+        // Reference to arrival time field of current event
+        let timeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Arrival Time")
+        
+        // Update arrival time
+        timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
+
     }
     
 }
@@ -271,6 +284,10 @@ extension SecondMapViewController : MKMapViewDelegate {
             }
             
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
+            
+            // Save arrival time for current user
+            dataService.CURRENT_USER_ARRIVAL_TIME = expectedArrivalDate_string
+
             
             self.eta_label.text = expected_time_string
             member_data[0].eta = expected_time_string

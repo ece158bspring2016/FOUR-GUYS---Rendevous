@@ -52,7 +52,7 @@ class AddMemberViewController: UITableViewController {
                 self.eventUID = dataService.CURRENT_SELECTED_EVENT_UID
                 
                 // Add event to invitee's guest list
-                dataService.BASE_REF.childByAppendingPath("USERS/\(self.inviteeUID)/EVENTS/\(self.eventUID)").setValue(self.eventUID)
+                dataService.BASE_REF.childByAppendingPath("USERS/\(self.inviteeUID)/EVENTS/\(self.eventUID)").setValue("Pending")
                 
                 // Add invitee to event's guest list
                 dataService.USERS_REF.queryOrderedByKey().queryEqualToValue(self.inviteeUID).observeEventType(.ChildAdded, withBlock: { snapshot2 in
