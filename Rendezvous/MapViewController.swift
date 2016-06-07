@@ -59,13 +59,16 @@ class MapViewController : UIViewController {
         eta_label.text = nil
         background_label.backgroundColor = nil
         start_button.hidden = true
-        
     }
     
-    @IBAction func backToMapViewController(segue:UIStoryboardSegue) {
+    @IBAction func leaveEvent(segue:UIStoryboardSegue) {
+        print("Leave event")
+        
+        dataService.removeEvent(dataService.CURRENT_SELECTED_EVENT_UID)
     }
 
     @IBAction func startEvent() {
+        print("Start event")
         cur_event.startEvent()
     }
 }

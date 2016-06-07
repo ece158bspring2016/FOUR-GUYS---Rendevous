@@ -156,7 +156,15 @@ class DataService {
         
         // Append event to user profile on Firebase
         self._BASE_REF.childByAppendingPath("USERS/\(CURRENT_USER_UID)/EVENTS/\(currentEventID)").setValue("Accepted")
-
     }
     
+    func removeEvent(event_ID: String) {
+        // Delete event from user's event list (Firebase)
+        let userRef = Firebase(url: "https://rend-ezvous.firebaseio.com/USERS/\(dataService.CURRENT_USER_UID)/EVENTS/\(event_ID)")
+        userRef.removeValue()
+        
+        // Delete user from event's guest list (Firebase)
+        let eventRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(event_ID)/Guests/\(dataService.CURRENT_USER_UID)")
+        eventRef.removeValue()
+    }
 }
