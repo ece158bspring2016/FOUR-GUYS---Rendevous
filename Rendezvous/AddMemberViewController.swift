@@ -41,7 +41,7 @@ class AddMemberViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddMember" {
-            member = Member(name: email_textfield.text!, eta: "Pending")
+            member = Member(name: email_textfield.text!, eta: "Pending", mode: "")
             
             self.eventUID = dataService.selectedEvent
             
@@ -58,8 +58,8 @@ class AddMemberViewController: UITableViewController {
                 dataService.USERS_REF.queryOrderedByKey().queryEqualToValue(self.inviteeUID).observeEventType(.ChildAdded, withBlock: { snapshot2 in
                     
                     let name = snapshot2.value["Name"] as? String
-                    
-                    let invitedGuest = ["Arrival Time": "Pending", "Name": name!]
+            
+                    let invitedGuest = ["Arrival Time": "Pending", "Name": name!, "Travel Mode": ""]
                     
                     // Append invitee to the event's guest list on Firebase
                     dataService.BASE_REF.childByAppendingPath("EVENTS/\(self.eventUID)/Guests/\(self.inviteeUID)").setValue(invitedGuest)

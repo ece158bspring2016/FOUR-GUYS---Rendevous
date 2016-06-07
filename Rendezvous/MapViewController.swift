@@ -70,7 +70,7 @@ class MapViewController : UIViewController {
 
     @IBAction func startEvent() {
         print("Start event")
-        dataService.desiredModeString = "Automobile"
+        //dataService.desiredModeString = "Automobile"
         cur_event.startEvent()
     }
     

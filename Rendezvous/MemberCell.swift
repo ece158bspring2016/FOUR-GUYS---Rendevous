@@ -8,17 +8,19 @@
 
 import UIKit
 
+
 class MemberCell: UITableViewCell {
 
     @IBOutlet weak var title_label: UILabel!
     @IBOutlet weak var eta_label: UILabel!
     @IBOutlet weak var transport_image: UIImageView!
     
+    
     var member: Member! {
         didSet {
             title_label.text = member.name
             eta_label.text = member.eta
-            transport_image.image = imageForTransport(dataService.desiredModeString)
+            transport_image.image = imageForTransport(member.mode!)
         }
     }
     

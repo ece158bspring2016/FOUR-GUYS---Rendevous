@@ -33,7 +33,8 @@ class MembersViewController: UITableViewController {
                     
                     let name = snap.value["Name"] as? String
                     let arrivalTime = snap.value["Arrival Time"] as? String
-                    var guestToInsert = Member(name: name!, eta: arrivalTime!)
+                    let travelMode = snap.value["Travel Mode"] as? String
+                    var guestToInsert = Member(name: name!, eta: arrivalTime!, mode: travelMode!)
                     
                     self.members.insert(guestToInsert, atIndex: self.members.count)
                     

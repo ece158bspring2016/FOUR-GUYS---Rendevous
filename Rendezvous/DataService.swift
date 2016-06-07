@@ -29,7 +29,7 @@ class DataService {
     var selectedEvent = ""
     var arrivalTime = ""
     var desiredMode : MKDirectionsTransportType = MKDirectionsTransportType.Automobile
-    var desiredModeString = ""
+    var desiredModeString = "Automobile"
     var eventStorage:[Event] = []
     
 
