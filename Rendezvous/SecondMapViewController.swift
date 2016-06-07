@@ -9,58 +9,7 @@
 import UIKit
 import MapKit
 import Firebase
-/*class SecondMapViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    
- 
-        let locationManager = CLLocationManager()
-    
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.requestLocation()
-        }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-extension SecondMapViewController : CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
-            locationManager.requestLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let span = MKCoordinateSpanMake(0.05, 0.05)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error:: \(error)")
-    }
-}*/
-/*protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
-}*/
 protocol HandleMapSearch2 {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
@@ -69,19 +18,8 @@ class SecondMapViewController : UIViewController {
     var handleMapSearchDelegate:HandleMapSearch? = nil
 
     var selectedPin:MKPlacemark? = nil
-    
-    //var resultSearchController:UISearchController? = nil
-    
+
     let locationManager = CLLocationManager()
-    //@IBOutlet weak var mapView: MKMapView!
-    //@IBOutlet weak var address_label: UILabel!
-    //@IBOutlet weak var departure_time_label: UILabel!
-    //@IBOutlet weak var arrival_time_label: UILabel!
-    //@IBOutlet weak var distance_label: UILabel!
-    //@IBOutlet weak var eta_label: UILabel!
-    //@IBOutlet weak var background_label: UILabel!
-    ///@IBOutlet weak var start_button: UIButton!
-    ///@IBOutlet weak var notifications_button: UIButton!
     
     @IBOutlet weak var background_label: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -99,15 +37,6 @@ class SecondMapViewController : UIViewController {
         locationManager.requestLocation()
 
         definesPresentationContext = true
-
-        /*
-        address_label.text = nil
-        arrival_time_label.text = nil
-        distance_label.text = nil
-        eta_label.text = nil
-        background_label.backgroundColor = nil
-        */
-        //start_button.hidden = true
         
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = dataService.DESTINATION
@@ -270,10 +199,6 @@ extension SecondMapViewController : MKMapViewDelegate {
             let days = Int(expected_time / (60*60*24))
             let hours = Int(expected_time / (60*60)) % 24
             
-            //let expectedArrivalDate = currentDate.dateByAddingTimeInterval(expected_time)
-            //let components = calendar.components([ .Hour, .Minute, .Second], fromDate: currentDate)
-            
-            
             var expectedArrivalDate_string: String = "Arrival: "
             //
             var min = Int(expected_time / 60) % 60
@@ -289,11 +214,7 @@ extension SecondMapViewController : MKMapViewDelegate {
             if (min > 0) {
                 expected_time_string = expected_time_string.stringByAppendingString("\(min) min ")
             }
-            /*let ahours = components.hour + hours
-             let aminutes = components.minute + min
-             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahours)hr")
-             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(aminutes)min")
-             */
+
             let calendar = NSCalendar.currentCalendar()
             let adate = NSDate()
             let components = calendar.components([ .Hour, .Minute, .Second, .Day, .Month, .Year], fromDate: adate)
@@ -347,17 +268,6 @@ extension SecondMapViewController : MKMapViewDelegate {
             let arrival_time: String!
             arrival_time = hour + ":" + minute + " " + ampm + " \(amonth)-\(aday)-\(ayear) "
 
-            /*
-            if (ahour > 12){
-                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
-                arrival_time = "\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
-            }
-            else {
-                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
-                arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
-            }
-            */
-            
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
             // Save arrival time for current user
@@ -369,7 +279,6 @@ extension SecondMapViewController : MKMapViewDelegate {
             
             self.arrival_time_label.text = expectedArrivalDate_string
             self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*1000)/1000))) mile(s)"
-       //     self.start_button.hidden = false
             
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)

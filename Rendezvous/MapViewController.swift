@@ -26,7 +26,6 @@ class MapViewController : UIViewController {
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var address_label: UILabel!
-    //@IBOutlet weak var departure_time_label: UILabel!
     @IBOutlet weak var arrival_time_label: UILabel!
     @IBOutlet weak var distance_label: UILabel!
     @IBOutlet weak var eta_label: UILabel!
@@ -91,19 +90,6 @@ class MapViewController : UIViewController {
         
         dataService.desiredModeString = modeString[sender.selectedSegmentIndex]
 
-        /*
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = dataService.DESTINATION
-        request.region = mapView.region
-        let search = MKLocalSearch(request: request)
-        search.startWithCompletionHandler { response, _ in
-            guard let response = response else {
-                return
-            }
-            self.dropPinZoomIn(response.mapItems[0].placemark)
-        }
-        */
-        
         self.dropPinZoomIn(selectedPin!)
  
     }
@@ -204,10 +190,6 @@ extension MapViewController : MKMapViewDelegate {
             let days = Int(expected_time / (60*60*24))
             let hours = Int(expected_time / (60*60)) % 24
             
-            //let expectedArrivalDate = currentDate.dateByAddingTimeInterval(expected_time)
-            //let components = calendar.components([ .Hour, .Minute, .Second], fromDate: currentDate)
-            
-            
             var expectedArrivalDate_string: String = "Arrival: "
             //
             var min = Int(expected_time / 60) % 60
@@ -223,11 +205,7 @@ extension MapViewController : MKMapViewDelegate {
             if (min > 0) {
                 expected_time_string = expected_time_string.stringByAppendingString("\(min) min ")
             }
-            /*let ahours = components.hour + hours
-            let aminutes = components.minute + min
-            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahours)hr")
-            expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(aminutes)min")
-            */
+
             let calendar = NSCalendar.currentCalendar()
             let adate = NSDate()
             let components = calendar.components([ .Hour, .Minute, .Second, .Day, .Month, .Year], fromDate: adate)
@@ -280,15 +258,6 @@ extension MapViewController : MKMapViewDelegate {
 
             let arrival_time: String!
             arrival_time = hour + ":" + minute + " " + ampm + " \(amonth)-\(aday)-\(ayear) "
-            /*
-            if (ahour >= 12){
-                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
-                arrival_time = "\(ahour):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
-            }
-            else {
-                //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
-                arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
-            }*/
 
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             

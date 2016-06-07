@@ -11,9 +11,7 @@ import MapKit
 
 class LocationSearchTable : UITableViewController {
     var handleMapSearchDelegate:HandleMapSearch? = nil
-    
-   //var handleMapSearch2Delegate:HandleMapSearch2? = nil
-    
+
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     

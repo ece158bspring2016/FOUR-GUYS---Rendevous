@@ -66,10 +66,6 @@ class Map: UIViewController{
                 let days = Int(expected_time / (60*60*24))
                 let hours = Int(expected_time / (60*60)) % 24
                 
-                //let expectedArrivalDate = currentDate.dateByAddingTimeInterval(expected_time)
-                //let components = calendar.components([ .Hour, .Minute, .Second], fromDate: currentDate)
-                
-                
                 var expectedArrivalDate_string: String = "Arrival: "
                 //
                 var min = Int(expected_time / 60) % 60
@@ -133,34 +129,6 @@ class Map: UIViewController{
 
         }
     }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        
-        // Create another annotation for the map.
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = newLocation.coordinate
-        
-//        // Add to locations array
-//        locations.append(annotation)
-//        
-//        // Remove values if the array is too big
-//        while locations.count > 100 {
-//            let annotationToRemove = locations.first!
-//            locations.removeAtIndex(0)
-//            
-//            // Also remove from the map
-//            mapView.removeAnnotation(annotationToRemove)
-//        }
-        
-        if UIApplication.sharedApplication().applicationState == .Active {
-            print("APP IS ACTIVE")
-            //mapView.showAnnotations(locations, animated: true)
-        } else {
-            //NSLog("App is backgrounded. New location is %@", newLocation)
-            print("APP IS BACKGROUNDED")
-        }
-    }
-
 }
 
 

@@ -139,35 +139,14 @@ class MembersViewController: UITableViewController {
     }
     
     @IBAction func addMember(segue:UIStoryboardSegue) {
-//        if let addMemberViewController = segue.sourceViewController as? AddMemberViewController {
-//            
-//            //add the new book to the books array
-//            if let member = addMemberViewController.member {
-//                members.append(member)
-//                
-//                //update the tableView
-//                let indexPath = NSIndexPath(forRow: members.count-1, inSection: 0)
-//                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//            }
-//        }
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
         
-        print("REFRESH FROM MEMBERS VIEW")
-        //let map = MapViewController()
-        //Mapr
+        // Recalculate arrival time
         map.routing()
-        
-        //Map.map.routing()
-        
-        //        // Reference to arrival time field of current event
-        //        let timeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Arrival Time")
-        //
-        //        // Update arrival time
-        //        timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
         
         
         self.tableView.reloadData()
