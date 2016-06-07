@@ -12,11 +12,13 @@ class MemberCell: UITableViewCell {
 
     @IBOutlet weak var title_label: UILabel!
     @IBOutlet weak var eta_label: UILabel!
+    @IBOutlet weak var transport_image: UIImageView!
     
     var member: Member! {
         didSet {
             title_label.text = member.name
             eta_label.text = member.eta
+            transport_image.image = imageForTransport("Automobile")
         }
     }
     
@@ -28,6 +30,10 @@ class MemberCell: UITableViewCell {
         self.eta_label.text = member.eta!
     }
 
+    func imageForTransport(transport:String) -> UIImage? {
+        return UIImage(named: transport)
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
