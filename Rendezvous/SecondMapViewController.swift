@@ -175,6 +175,24 @@ extension SecondMapViewController : MKMapViewDelegate {
             if let err = error {
                 
                 print(err.userInfo["NSLocalizedFailureReason"])
+                
+                let alert = UIAlertController (title :"Route Failed",
+                    message: "Route cannot be determined",
+                    preferredStyle: UIAlertControllerStyle.Alert)
+                
+                let ok = UIAlertAction(title: "Ok",
+                style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
+                    print("OK")
+                }
+                
+                alert.addAction(ok)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                dataService.desiredMode = MKDirectionsTransportType.Automobile
+                
+                dataService.desiredModeString = "Automobile"
+
                 return
             }
             

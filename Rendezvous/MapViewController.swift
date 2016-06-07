@@ -22,7 +22,16 @@ class MapViewController : UIViewController {
 
     var resultSearchController:UISearchController? = nil
     
+    var modes : [MKDirectionsTransportType] = [
+        MKDirectionsTransportType.Automobile,
+        MKDirectionsTransportType.Walking,
+        MKDirectionsTransportType.Transit]
     
+    var modeString : [String] = [
+        "Automobile",
+        "Walking",
+        "Transit"]
+
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var address_label: UILabel!
@@ -76,15 +85,6 @@ class MapViewController : UIViewController {
     
     
     @IBAction func modeofTravel(sender: UISegmentedControl) {
-        var modes : [MKDirectionsTransportType] = [
-            MKDirectionsTransportType.Automobile,
-            MKDirectionsTransportType.Walking,
-            MKDirectionsTransportType.Transit]
-        
-        var modeString : [String] = [
-            "Automobile",
-            "Walking",
-            "Transit"]
         
         dataService.desiredMode = modes[sender.selectedSegmentIndex]
         
@@ -163,7 +163,6 @@ extension MapViewController : MKMapViewDelegate {
 
                 print(err.userInfo["NSLocalizedFailureReason"])
                 
-                /*
                 let alert = UIAlertController (title :"Route Failed",
                     message: "Route cannot be determined",
                     preferredStyle: UIAlertControllerStyle.Alert)
@@ -176,7 +175,11 @@ extension MapViewController : MKMapViewDelegate {
                 alert.addAction(ok)
                 
                 self.presentViewController(alert, animated: true, completion: nil)
-                */
+
+                dataService.desiredMode = self.modes[0]
+                
+                dataService.desiredModeString = self.modeString[0]
+
                 return
             }
             
