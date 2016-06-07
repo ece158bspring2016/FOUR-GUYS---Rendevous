@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import MapKit
 
 let dataService = DataService()
 
@@ -27,7 +28,7 @@ class DataService {
     var currentEventName = ""
     var selectedEvent = ""
     var arrivalTime = ""
-    
+    var desiredMode : MKDirectionsTransportType = MKDirectionsTransportType.Automobile
     var eventStorage:[Event] = []
 
     
