@@ -104,13 +104,37 @@ class Map: UIViewController{
                     aday = aday + 1
                 }
                 
-                let arrival_time: String!
-                if (ahour > 12){
-                    arrival_time = "\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
+                var ampm = ""
+                if (ahour >= 12) {
+                    ampm = "PM"
+                    if (ahour != 12) {
+                        ahour -= 12
+                    }
                 }
                 else {
-                    arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
+                    ampm = "AM"
                 }
+                
+                var hour = ""
+                
+                if (ahour < 10) {
+                    hour = "0\(ahour)"
+                }
+                else {
+                    hour = "\(ahour)"
+                }
+                
+                var minute = ""
+                
+                if (aminutes < 10) {
+                    minute = "0\(aminutes)"
+                }
+                else {
+                    minute = "\(aminutes)"
+                }
+                
+                let arrival_time: String!
+                arrival_time = hour + ":" + minute + " " + ampm + " \(amonth)-\(aday)-\(ayear) "
                 
                 expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
                 
