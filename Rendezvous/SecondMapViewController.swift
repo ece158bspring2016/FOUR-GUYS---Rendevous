@@ -315,8 +315,39 @@ extension SecondMapViewController : MKMapViewDelegate {
                 
                 aday = aday + 1
             }
+            var ampm = ""
+            if (ahour >= 12) {
+                ampm = "PM"
+                if (ahour != 12) {
+                    ahour -= 12
+                }
+            }
+            else {
+                ampm = "AM"
+            }
+            
+            var hour = ""
+            
+            if (ahour < 10) {
+                hour = "0\(ahour)"
+            }
+            else {
+                hour = "\(ahour)"
+            }
+            
+            var minute = ""
+            
+            if (aminutes < 10) {
+                minute = "0\(aminutes)"
+            }
+            else {
+                minute = "\(aminutes)"
+            }
             
             let arrival_time: String!
+            arrival_time = hour + ":" + minute + " " + ampm + " \(amonth)-\(aday)-\(ayear) "
+
+            /*
             if (ahour > 12){
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
                 arrival_time = "\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
@@ -325,6 +356,7 @@ extension SecondMapViewController : MKMapViewDelegate {
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
                 arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
             }
+            */
             
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
@@ -336,7 +368,7 @@ extension SecondMapViewController : MKMapViewDelegate {
             member_data[0].eta = expected_time_string
             
             self.arrival_time_label.text = expectedArrivalDate_string
-            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile(s)"
+            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*1000)/1000))) mile(s)"
        //     self.start_button.hidden = false
             
             mapView.removeOverlays(mapView.overlays)

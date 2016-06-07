@@ -66,7 +66,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-zm-A5y">
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-zm-A5y">
                                 <rect key="frame" x="174" y="93" width="250" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="RJE-Tm-Xdv"/>
@@ -145,6 +145,7 @@
                         <outlet property="mapView" destination="xT5-yd-8kv" id="TBd-wk-dhw"/>
                         <outlet property="notifications_button" destination="7jg-LU-dnP" id="Kaf-6y-CLw"/>
                         <outlet property="start_button" destination="OLr-jM-TEv" id="7gD-FU-Fsy"/>
+                        <outlet property="transport_type_select" destination="tRc-zm-A5y" id="Jx7-M9-XDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -193,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4O-zx-INz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="-457"/>
+            <point key="canvasLocation" x="1793" y="-441"/>
         </scene>
         <!--Second Map View Controller-->
         <scene sceneID="y3h-WN-wec">
@@ -571,7 +572,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qU-Km-GKE" id="OjT-oB-dSJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qts-Vd-tjS" userLabel="Transport Image">
@@ -641,6 +642,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hSS-zl-djg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6W-ec-BJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

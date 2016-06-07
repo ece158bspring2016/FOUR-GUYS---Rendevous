@@ -34,6 +34,7 @@ class MapViewController : UIViewController {
     @IBOutlet weak var start_button: UIButton!
     @IBOutlet weak var notifications_button: UIButton!
 
+    @IBOutlet weak var transport_type_select: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -89,7 +90,8 @@ class MapViewController : UIViewController {
         dataService.desiredMode = modes[sender.selectedSegmentIndex]
         
         dataService.desiredModeString = modeString[sender.selectedSegmentIndex]
-        
+
+        /*
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = dataService.DESTINATION
         request.region = mapView.region
@@ -100,6 +102,10 @@ class MapViewController : UIViewController {
             }
             self.dropPinZoomIn(response.mapItems[0].placemark)
         }
+        */
+        
+        self.dropPinZoomIn(selectedPin!)
+ 
     }
     
     
@@ -184,8 +190,10 @@ extension MapViewController : MKMapViewDelegate {
             let address2 = (self.selectedPin?.administrativeArea)! + " " + (self.selectedPin?.postalCode)!
             let address = address1 + address2
 
-            dataService.currentEventName = destination
+            dataService.DESTINATION = address
 
+            dataService.currentEventName = destination
+            
             self.address_label.text = destination
             
             // Calculate ETA
@@ -241,16 +249,46 @@ extension MapViewController : MKMapViewDelegate {
                 
                 aday = aday + 1
             }
+            var ampm = ""
+            if (ahour >= 12) {
+                ampm = "PM"
+                if (ahour != 12) {
+                    ahour -= 12
+                }
+            }
+            else {
+                ampm = "AM"
+            }
+            
+            var hour = ""
+            
+            if (ahour < 10) {
+                hour = "0\(ahour)"
+            }
+            else {
+                hour = "\(ahour)"
+            }
+            
+            var minute = ""
+            
+            if (aminutes < 10) {
+                minute = "0\(aminutes)"
+            }
+            else {
+                minute = "\(aminutes)"
+            }
 
             let arrival_time: String!
-            if (ahour > 12){
+            arrival_time = hour + ":" + minute + " " + ampm + " \(amonth)-\(aday)-\(ayear) "
+            /*
+            if (ahour >= 12){
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) ")
-                arrival_time = "\(ahour-12):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
+                arrival_time = "\(ahour):\(aminutes) PM  \(amonth)-\(aday)-\(ayear) "
             }
             else {
                 //expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString("\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) ")
                 arrival_time = "\(ahour):\(aminutes) AM  \(amonth)-\(aday)-\(ayear) "
-            }
+            }*/
 
             expectedArrivalDate_string = expectedArrivalDate_string.stringByAppendingString(arrival_time)
             
@@ -258,11 +296,12 @@ extension MapViewController : MKMapViewDelegate {
             member_data[0].eta = expected_time_string
             
             self.arrival_time_label.text = expectedArrivalDate_string
-            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*100)/100))) mile(s)"
+            self.distance_label.text = "Distance: \(Float(round(current_route.distance * (0.000621371192*1000)/1000))) mile(s)"
             self.start_button.hidden = false
 
             mapView.removeOverlays(mapView.overlays)
             mapView.addOverlay(current_route.polyline, level: MKOverlayLevel.AboveRoads)
+            self.transport_type_select.hidden = false
             
             cur_event = Event.init(destination: destination, arrival_time: arrival_time, address: address)
         }

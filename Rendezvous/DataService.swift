@@ -32,8 +32,6 @@ class DataService {
     var desiredModeString = "Automobile"
     var eventStorage:[Event] = []
     
-
-    
     private var CURRENT_EVENT_URL = ""
     
     

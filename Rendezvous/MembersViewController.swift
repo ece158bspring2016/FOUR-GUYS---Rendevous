@@ -16,6 +16,8 @@ class MembersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("backgroundArrivalTimeUpdate"), userInfo: nil, repeats: true)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,6 +46,9 @@ class MembersViewController: UITableViewController {
             self.tableView.reloadData()
             
         })
+        
+        // Pull to refresh
+        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
 
     }
 
@@ -147,5 +152,30 @@ class MembersViewController: UITableViewController {
 //        }
     }
 
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        print("REFRESH FROM MEMBERS VIEW")
+        //let map = MapViewController()
+        //Mapr
+        map.routing()
+        
+        //Map.map.routing()
+        
+        //        // Reference to arrival time field of current event
+        //        let timeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Arrival Time")
+        //
+        //        // Update arrival time
+        //        timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
+        
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    func backgroundArrivalTimeUpdate() {
+        map.routing()
+    }
 
 }

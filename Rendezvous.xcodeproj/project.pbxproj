@@ -23,6 +23,7 @@
 		8528CDCF1CE686E4003794D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8528CDCE1CE686E4003794D5 /* SystemConfiguration.framework */; };
 		8528CDD11CE691D3003794D5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528CDD01CE691D3003794D5 /* SignInViewController.swift */; };
 		859671231CE7CC9F003644F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859671221CE7CC9E003644F3 /* Main.storyboard */; };
+		85E023CF1D0753E40045A5A6 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E023CE1D0753E40045A5A6 /* Map.swift */; };
 		85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */; };
 		AB1D29D71D035E85005C665F /* SecondMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D29D61D035E85005C665F /* SecondMapViewController.swift */; };
 		EC03D6661CF509180026ECF2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC03D6651CF509180026ECF2 /* DataService.swift */; };
@@ -50,6 +51,7 @@
 		8528CDCE1CE686E4003794D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8528CDD01CE691D3003794D5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		859671221CE7CC9E003644F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		85E023CE1D0753E40045A5A6 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AB1D29D61D035E85005C665F /* SecondMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondMapViewController.swift; sourceTree = "<group>"; };
 		EC03D6651CF509180026ECF2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				67C7DEAE1CEBE4B90094C22F /* AppDelegate.swift */,
 				85FE6A3C1CEE605500FD2D55 /* CreateAccountViewController.swift */,
 				EC03D6651CF509180026ECF2 /* DataService.swift */,
+				85E023CE1D0753E40045A5A6 /* Map.swift */,
 				EC9C62681CEAADA400DE00A4 /* Event.swift */,
 				EC784C341CF512CB001634C8 /* EventCellTableViewCell.swift */,
 				EC9C62661CEAAADF00DE00A4 /* EventsViewController.swift */,
@@ -231,6 +234,7 @@
 			files = (
 				85FE6A3D1CEE605500FD2D55 /* CreateAccountViewController.swift in Sources */,
 				AB1D29D71D035E85005C665F /* SecondMapViewController.swift in Sources */,
+				85E023CF1D0753E40045A5A6 /* Map.swift in Sources */,
 				EC03D6661CF509180026ECF2 /* DataService.swift in Sources */,
 				67C7DEAF1CEBE4B90094C22F /* AppDelegate.swift in Sources */,
 				676017D71CE7DAF7002784CC /* MembersViewController.swift in Sources */,
