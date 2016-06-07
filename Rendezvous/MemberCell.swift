@@ -18,7 +18,7 @@ class MemberCell: UITableViewCell {
         didSet {
             title_label.text = member.name
             eta_label.text = member.eta
-            transport_image.image = imageForTransport("Automobile")
+            transport_image.image = imageForTransport(dataService.desiredModeString)
         }
     }
     

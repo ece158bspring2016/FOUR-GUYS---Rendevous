@@ -22,6 +22,7 @@ class MapViewController : UIViewController {
 
     var resultSearchController:UISearchController? = nil
     
+    
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var address_label: UILabel!
@@ -69,6 +70,7 @@ class MapViewController : UIViewController {
 
     @IBAction func startEvent() {
         print("Start event")
+        dataService.desiredModeString = "Automobile"
         cur_event.startEvent()
     }
     
@@ -79,7 +81,14 @@ class MapViewController : UIViewController {
             MKDirectionsTransportType.Walking,
             MKDirectionsTransportType.Transit]
         
+        var modeString : [String] = [
+            "Automobile",
+            "Walking",
+            "Transit"]
+        
         dataService.desiredMode = modes[sender.selectedSegmentIndex]
+        
+        dataService.desiredModeString = modeString[sender.selectedSegmentIndex]
         
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = dataService.DESTINATION

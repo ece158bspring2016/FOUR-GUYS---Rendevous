@@ -134,12 +134,17 @@ class SecondMapViewController : UIViewController {
         
         // Reference to event status for current user
         let eventStatusRef = Firebase(url: "https://rend-ezvous.firebaseio.com/USERS/\(dataService.CURRENT_USER_UID)/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)")
+        
+        let travelModeRef = Firebase(url: "https://rend-ezvous.firebaseio.com/EVENTS/\(dataService.CURRENT_SELECTED_EVENT_UID)/Guests/\(dataService.CURRENT_USER_UID)").childByAppendingPath("Travel Mode")
                 
         // Update arrival time
         timeRef.setValue(dataService.CURRENT_USER_ARRIVAL_TIME)
         
         // Update event status
         eventStatusRef.setValue("Accepted")
+        
+        // Update travel mode for guest
+        travelModeRef.setValue(dataService.desiredModeString)
         
         //self.performSegueWithIdentifier("inProgressSegue", sender: nil)
 
@@ -150,8 +155,15 @@ class SecondMapViewController : UIViewController {
             MKDirectionsTransportType.Automobile,
             MKDirectionsTransportType.Walking,
             MKDirectionsTransportType.Transit]
+        
+        var modeString : [String] = [
+            "Automobile",
+            "Walking",
+            "Transit"]
             
         dataService.desiredMode = modes[sender.selectedSegmentIndex]
+        
+        dataService.desiredModeString = modeString[sender.selectedSegmentIndex]
             
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = dataService.DESTINATION

@@ -29,7 +29,9 @@ class DataService {
     var selectedEvent = ""
     var arrivalTime = ""
     var desiredMode : MKDirectionsTransportType = MKDirectionsTransportType.Automobile
+    var desiredModeString = ""
     var eventStorage:[Event] = []
+    
 
     
     private var CURRENT_EVENT_URL = ""

@@ -99,7 +99,7 @@ class Event {
     }
     
     func startEvent() {
-        let event:Dictionary<String, AnyObject> = ["Address": self.event_address, "Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName]]]
+        let event:Dictionary<String, AnyObject> = ["Address": self.event_address, "Destination":self.destination, "Starter": user_info.getName, "Guests": [user_info.getUID: ["Arrival Time": self.arrival_time, "Name": user_info.getName, "Travel Mode": dataService.desiredModeString]]]
         dataService.createNewEvent(event)
     }
         
